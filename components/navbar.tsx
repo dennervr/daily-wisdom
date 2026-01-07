@@ -23,6 +23,9 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
 
   useEffect(() => setMounted(true), [])
 
+  // Prevent hydration mismatch by showing a placeholder until client-side hydration is complete
+  const displayLanguage = mounted ? language.name : ""
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
@@ -46,8 +49,14 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
             <DropdownMenuTrigger asChild>
               <Button variant="outline" size="sm" className="gap-2 rounded-full text-xs bg-transparent">
                 <Globe className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">{language.name}</span>
-                <span className="sm:hidden">{language.name.substring(0, 2)}</span>
+                {mounted ? (
+                  <>
+                    <span className="hidden sm:inline">{displayLanguage}</span>
+                    <span className="sm:hidden">{displayLanguage.substring(0, 2)}</span>
+                  </>
+                ) : (
+                  <span className="w-16 sm:w-20">&nbsp;</span>
+                )}
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="max-h-64 overflow-y-auto">

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"
 import { Skeleton } from "@/components/ui/skeleton"
 import { type LanguageConfigType } from "@/lib/constants"
 import { useTranslation } from "@/lib/i18n"
@@ -8,8 +9,15 @@ interface LoadingStateProps {
 
 export function LoadingState({ language }: LoadingStateProps) {
   const t = useTranslation()
+  const [mounted, setMounted] = useState(false)
+  
+  useEffect(() => setMounted(true), [])
+  
   // Show "gathering" for English (original article), "translating" for other languages
-  const text = language.code === 'en' ? t('loading.gathering') : t('loading.translating')
+  // Wait for client-side hydration to prevent mismatch
+  const text = mounted 
+    ? (language.code === 'en' ? t('loading.gathering') : t('loading.translating'))
+    : t('loading.gathering') // Default to 'gathering' during SSR
 
   return (
     <div className="max-w-3xl mx-auto px-6 py-12 md:py-20 animate-in fade-in-0 duration-300">
