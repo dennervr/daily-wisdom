@@ -1,3 +1,4 @@
+'use client'
 import type { ArticleData } from "@/lib/types"
 import { SUPPORTED_LANGUAGES } from '@/lib/constants'
 import { format } from "date-fns"

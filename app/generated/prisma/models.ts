@@ -8,6 +8,6 @@
  *
  * 🟢 You can import this file directly.
  */
+export type * from './models/Day'
 export type * from './models/Article'
-export type * from './models/Translation'
 export type * from './commonInputTypes'

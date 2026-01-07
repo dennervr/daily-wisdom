@@ -28,74 +28,86 @@ export type AggregateArticle = {
 
 export type ArticleAvgAggregateOutputType = {
   id: number | null
+  dayId: number | null
 }
 
 export type ArticleSumAggregateOutputType = {
   id: number | null
+  dayId: number | null
 }
 
 export type ArticleMinAggregateOutputType = {
   id: number | null
-  date: Date | null
+  dayId: number | null
+  language: string | null
   title: string | null
   content: string | null
-  sources: string | null
-  language: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ArticleMaxAggregateOutputType = {
   id: number | null
-  date: Date | null
+  dayId: number | null
+  language: string | null
   title: string | null
   content: string | null
-  sources: string | null
-  language: string | null
+  createdAt: Date | null
+  updatedAt: Date | null
 }
 
 export type ArticleCountAggregateOutputType = {
   id: number
-  date: number
+  dayId: number
+  language: number
   title: number
   content: number
   sources: number
-  language: number
+  createdAt: number
+  updatedAt: number
   _all: number
 }
 
 
 export type ArticleAvgAggregateInputType = {
   id?: true
+  dayId?: true
 }
 
 export type ArticleSumAggregateInputType = {
   id?: true
+  dayId?: true
 }
 
 export type ArticleMinAggregateInputType = {
   id?: true
-  date?: true
+  dayId?: true
+  language?: true
   title?: true
   content?: true
-  sources?: true
-  language?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ArticleMaxAggregateInputType = {
   id?: true
-  date?: true
+  dayId?: true
+  language?: true
   title?: true
   content?: true
-  sources?: true
-  language?: true
+  createdAt?: true
+  updatedAt?: true
 }
 
 export type ArticleCountAggregateInputType = {
   id?: true
-  date?: true
+  dayId?: true
+  language?: true
   title?: true
   content?: true
   sources?: true
-  language?: true
+  createdAt?: true
+  updatedAt?: true
   _all?: true
 }
 
@@ -187,11 +199,13 @@ export type ArticleGroupByArgs<ExtArgs extends runtime.Types.Extensions.Internal
 
 export type ArticleGroupByOutputType = {
   id: number
-  date: Date
+  dayId: number
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
+  sources: runtime.JsonValue
+  createdAt: Date
+  updatedAt: Date
   _count: ArticleCountAggregateOutputType | null
   _avg: ArticleAvgAggregateOutputType | null
   _sum: ArticleSumAggregateOutputType | null
@@ -219,44 +233,53 @@ export type ArticleWhereInput = {
   OR?: Prisma.ArticleWhereInput[]
   NOT?: Prisma.ArticleWhereInput | Prisma.ArticleWhereInput[]
   id?: Prisma.IntFilter<"Article"> | number
-  date?: Prisma.DateTimeFilter<"Article"> | Date | string
+  dayId?: Prisma.IntFilter<"Article"> | number
+  language?: Prisma.StringFilter<"Article"> | string
   title?: Prisma.StringFilter<"Article"> | string
   content?: Prisma.StringFilter<"Article"> | string
-  sources?: Prisma.StringFilter<"Article"> | string
-  language?: Prisma.StringFilter<"Article"> | string
-  translations?: Prisma.TranslationListRelationFilter
+  sources?: Prisma.JsonFilter<"Article">
+  createdAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+  day?: Prisma.XOR<Prisma.DayScalarRelationFilter, Prisma.DayWhereInput>
 }
 
 export type ArticleOrderByWithRelationInput = {
   id?: Prisma.SortOrder
-  date?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   sources?: Prisma.SortOrder
-  language?: Prisma.SortOrder
-  translations?: Prisma.TranslationOrderByRelationAggregateInput
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
+  day?: Prisma.DayOrderByWithRelationInput
 }
 
 export type ArticleWhereUniqueInput = Prisma.AtLeast<{
   id?: number
-  date?: Date | string
+  dayId_language?: Prisma.ArticleDayIdLanguageCompoundUniqueInput
   AND?: Prisma.ArticleWhereInput | Prisma.ArticleWhereInput[]
   OR?: Prisma.ArticleWhereInput[]
   NOT?: Prisma.ArticleWhereInput | Prisma.ArticleWhereInput[]
+  dayId?: Prisma.IntFilter<"Article"> | number
+  language?: Prisma.StringFilter<"Article"> | string
   title?: Prisma.StringFilter<"Article"> | string
   content?: Prisma.StringFilter<"Article"> | string
-  sources?: Prisma.StringFilter<"Article"> | string
-  language?: Prisma.StringFilter<"Article"> | string
-  translations?: Prisma.TranslationListRelationFilter
-}, "id" | "date">
+  sources?: Prisma.JsonFilter<"Article">
+  createdAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+  day?: Prisma.XOR<Prisma.DayScalarRelationFilter, Prisma.DayWhereInput>
+}, "id" | "dayId_language">
 
 export type ArticleOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
-  date?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   sources?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
   _count?: Prisma.ArticleCountOrderByAggregateInput
   _avg?: Prisma.ArticleAvgOrderByAggregateInput
   _max?: Prisma.ArticleMaxOrderByAggregateInput
@@ -269,286 +292,362 @@ export type ArticleScalarWhereWithAggregatesInput = {
   OR?: Prisma.ArticleScalarWhereWithAggregatesInput[]
   NOT?: Prisma.ArticleScalarWhereWithAggregatesInput | Prisma.ArticleScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Article"> | number
-  date?: Prisma.DateTimeWithAggregatesFilter<"Article"> | Date | string
+  dayId?: Prisma.IntWithAggregatesFilter<"Article"> | number
+  language?: Prisma.StringWithAggregatesFilter<"Article"> | string
   title?: Prisma.StringWithAggregatesFilter<"Article"> | string
   content?: Prisma.StringWithAggregatesFilter<"Article"> | string
-  sources?: Prisma.StringWithAggregatesFilter<"Article"> | string
-  language?: Prisma.StringWithAggregatesFilter<"Article"> | string
+  sources?: Prisma.JsonWithAggregatesFilter<"Article">
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<"Article"> | Date | string
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Article"> | Date | string
 }
 
 export type ArticleCreateInput = {
-  date: Date | string
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
-  translations?: Prisma.TranslationCreateNestedManyWithoutArticleInput
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  day: Prisma.DayCreateNestedOneWithoutArticlesInput
 }
 
 export type ArticleUncheckedCreateInput = {
   id?: number
-  date: Date | string
+  dayId: number
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
-  translations?: Prisma.TranslationUncheckedCreateNestedManyWithoutArticleInput
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ArticleUpdateInput = {
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
-  language?: Prisma.StringFieldUpdateOperationsInput | string
-  translations?: Prisma.TranslationUpdateManyWithoutArticleNestedInput
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  day?: Prisma.DayUpdateOneRequiredWithoutArticlesNestedInput
 }
 
 export type ArticleUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dayId?: Prisma.IntFieldUpdateOperationsInput | number
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
-  language?: Prisma.StringFieldUpdateOperationsInput | string
-  translations?: Prisma.TranslationUncheckedUpdateManyWithoutArticleNestedInput
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ArticleCreateManyInput = {
   id?: number
-  date: Date | string
+  dayId: number
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
 export type ArticleUpdateManyMutationInput = {
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
-  language?: Prisma.StringFieldUpdateOperationsInput | string
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
 export type ArticleUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  dayId?: Prisma.IntFieldUpdateOperationsInput | number
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
-  language?: Prisma.StringFieldUpdateOperationsInput | string
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ArticleListRelationFilter = {
+  every?: Prisma.ArticleWhereInput
+  some?: Prisma.ArticleWhereInput
+  none?: Prisma.ArticleWhereInput
+}
+
+export type ArticleOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
+}
+
+export type ArticleDayIdLanguageCompoundUniqueInput = {
+  dayId: number
+  language: string
 }
 
 export type ArticleCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  date?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
   sources?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ArticleAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
 }
 
 export type ArticleMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  date?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
-  sources?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ArticleMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
-  date?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
+  language?: Prisma.SortOrder
   title?: Prisma.SortOrder
   content?: Prisma.SortOrder
-  sources?: Prisma.SortOrder
-  language?: Prisma.SortOrder
+  createdAt?: Prisma.SortOrder
+  updatedAt?: Prisma.SortOrder
 }
 
 export type ArticleSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
+  dayId?: Prisma.SortOrder
 }
 
-export type ArticleScalarRelationFilter = {
-  is?: Prisma.ArticleWhereInput
-  isNot?: Prisma.ArticleWhereInput
+export type ArticleCreateNestedManyWithoutDayInput = {
+  create?: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput> | Prisma.ArticleCreateWithoutDayInput[] | Prisma.ArticleUncheckedCreateWithoutDayInput[]
+  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutDayInput | Prisma.ArticleCreateOrConnectWithoutDayInput[]
+  createMany?: Prisma.ArticleCreateManyDayInputEnvelope
+  connect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+}
+
+export type ArticleUncheckedCreateNestedManyWithoutDayInput = {
+  create?: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput> | Prisma.ArticleCreateWithoutDayInput[] | Prisma.ArticleUncheckedCreateWithoutDayInput[]
+  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutDayInput | Prisma.ArticleCreateOrConnectWithoutDayInput[]
+  createMany?: Prisma.ArticleCreateManyDayInputEnvelope
+  connect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+}
+
+export type ArticleUpdateManyWithoutDayNestedInput = {
+  create?: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput> | Prisma.ArticleCreateWithoutDayInput[] | Prisma.ArticleUncheckedCreateWithoutDayInput[]
+  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutDayInput | Prisma.ArticleCreateOrConnectWithoutDayInput[]
+  upsert?: Prisma.ArticleUpsertWithWhereUniqueWithoutDayInput | Prisma.ArticleUpsertWithWhereUniqueWithoutDayInput[]
+  createMany?: Prisma.ArticleCreateManyDayInputEnvelope
+  set?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  disconnect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  delete?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  connect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  update?: Prisma.ArticleUpdateWithWhereUniqueWithoutDayInput | Prisma.ArticleUpdateWithWhereUniqueWithoutDayInput[]
+  updateMany?: Prisma.ArticleUpdateManyWithWhereWithoutDayInput | Prisma.ArticleUpdateManyWithWhereWithoutDayInput[]
+  deleteMany?: Prisma.ArticleScalarWhereInput | Prisma.ArticleScalarWhereInput[]
+}
+
+export type ArticleUncheckedUpdateManyWithoutDayNestedInput = {
+  create?: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput> | Prisma.ArticleCreateWithoutDayInput[] | Prisma.ArticleUncheckedCreateWithoutDayInput[]
+  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutDayInput | Prisma.ArticleCreateOrConnectWithoutDayInput[]
+  upsert?: Prisma.ArticleUpsertWithWhereUniqueWithoutDayInput | Prisma.ArticleUpsertWithWhereUniqueWithoutDayInput[]
+  createMany?: Prisma.ArticleCreateManyDayInputEnvelope
+  set?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  disconnect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  delete?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  connect?: Prisma.ArticleWhereUniqueInput | Prisma.ArticleWhereUniqueInput[]
+  update?: Prisma.ArticleUpdateWithWhereUniqueWithoutDayInput | Prisma.ArticleUpdateWithWhereUniqueWithoutDayInput[]
+  updateMany?: Prisma.ArticleUpdateManyWithWhereWithoutDayInput | Prisma.ArticleUpdateManyWithWhereWithoutDayInput[]
+  deleteMany?: Prisma.ArticleScalarWhereInput | Prisma.ArticleScalarWhereInput[]
 }
 
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
-export type StringFieldUpdateOperationsInput = {
-  set?: string
-}
-
-export type IntFieldUpdateOperationsInput = {
-  set?: number
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
-}
-
-export type ArticleCreateNestedOneWithoutTranslationsInput = {
-  create?: Prisma.XOR<Prisma.ArticleCreateWithoutTranslationsInput, Prisma.ArticleUncheckedCreateWithoutTranslationsInput>
-  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutTranslationsInput
-  connect?: Prisma.ArticleWhereUniqueInput
-}
-
-export type ArticleUpdateOneRequiredWithoutTranslationsNestedInput = {
-  create?: Prisma.XOR<Prisma.ArticleCreateWithoutTranslationsInput, Prisma.ArticleUncheckedCreateWithoutTranslationsInput>
-  connectOrCreate?: Prisma.ArticleCreateOrConnectWithoutTranslationsInput
-  upsert?: Prisma.ArticleUpsertWithoutTranslationsInput
-  connect?: Prisma.ArticleWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.ArticleUpdateToOneWithWhereWithoutTranslationsInput, Prisma.ArticleUpdateWithoutTranslationsInput>, Prisma.ArticleUncheckedUpdateWithoutTranslationsInput>
-}
-
-export type ArticleCreateWithoutTranslationsInput = {
-  date: Date | string
+export type ArticleCreateWithoutDayInput = {
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type ArticleUncheckedCreateWithoutTranslationsInput = {
+export type ArticleUncheckedCreateWithoutDayInput = {
   id?: number
-  date: Date | string
+  language: string
   title: string
   content: string
-  sources: string
-  language: string
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
 }
 
-export type ArticleCreateOrConnectWithoutTranslationsInput = {
+export type ArticleCreateOrConnectWithoutDayInput = {
   where: Prisma.ArticleWhereUniqueInput
-  create: Prisma.XOR<Prisma.ArticleCreateWithoutTranslationsInput, Prisma.ArticleUncheckedCreateWithoutTranslationsInput>
+  create: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput>
 }
 
-export type ArticleUpsertWithoutTranslationsInput = {
-  update: Prisma.XOR<Prisma.ArticleUpdateWithoutTranslationsInput, Prisma.ArticleUncheckedUpdateWithoutTranslationsInput>
-  create: Prisma.XOR<Prisma.ArticleCreateWithoutTranslationsInput, Prisma.ArticleUncheckedCreateWithoutTranslationsInput>
-  where?: Prisma.ArticleWhereInput
+export type ArticleCreateManyDayInputEnvelope = {
+  data: Prisma.ArticleCreateManyDayInput | Prisma.ArticleCreateManyDayInput[]
+  skipDuplicates?: boolean
 }
 
-export type ArticleUpdateToOneWithWhereWithoutTranslationsInput = {
-  where?: Prisma.ArticleWhereInput
-  data: Prisma.XOR<Prisma.ArticleUpdateWithoutTranslationsInput, Prisma.ArticleUncheckedUpdateWithoutTranslationsInput>
+export type ArticleUpsertWithWhereUniqueWithoutDayInput = {
+  where: Prisma.ArticleWhereUniqueInput
+  update: Prisma.XOR<Prisma.ArticleUpdateWithoutDayInput, Prisma.ArticleUncheckedUpdateWithoutDayInput>
+  create: Prisma.XOR<Prisma.ArticleCreateWithoutDayInput, Prisma.ArticleUncheckedCreateWithoutDayInput>
 }
 
-export type ArticleUpdateWithoutTranslationsInput = {
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+export type ArticleUpdateWithWhereUniqueWithoutDayInput = {
+  where: Prisma.ArticleWhereUniqueInput
+  data: Prisma.XOR<Prisma.ArticleUpdateWithoutDayInput, Prisma.ArticleUncheckedUpdateWithoutDayInput>
+}
+
+export type ArticleUpdateManyWithWhereWithoutDayInput = {
+  where: Prisma.ArticleScalarWhereInput
+  data: Prisma.XOR<Prisma.ArticleUpdateManyMutationInput, Prisma.ArticleUncheckedUpdateManyWithoutDayInput>
+}
+
+export type ArticleScalarWhereInput = {
+  AND?: Prisma.ArticleScalarWhereInput | Prisma.ArticleScalarWhereInput[]
+  OR?: Prisma.ArticleScalarWhereInput[]
+  NOT?: Prisma.ArticleScalarWhereInput | Prisma.ArticleScalarWhereInput[]
+  id?: Prisma.IntFilter<"Article"> | number
+  dayId?: Prisma.IntFilter<"Article"> | number
+  language?: Prisma.StringFilter<"Article"> | string
+  title?: Prisma.StringFilter<"Article"> | string
+  content?: Prisma.StringFilter<"Article"> | string
+  sources?: Prisma.JsonFilter<"Article">
+  createdAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+  updatedAt?: Prisma.DateTimeFilter<"Article"> | Date | string
+}
+
+export type ArticleCreateManyDayInput = {
+  id?: number
+  language: string
+  title: string
+  content: string
+  sources: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Date | string
+  updatedAt?: Date | string
+}
+
+export type ArticleUpdateWithoutDayInput = {
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
-  language?: Prisma.StringFieldUpdateOperationsInput | string
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-export type ArticleUncheckedUpdateWithoutTranslationsInput = {
+export type ArticleUncheckedUpdateWithoutDayInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  date?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  language?: Prisma.StringFieldUpdateOperationsInput | string
   title?: Prisma.StringFieldUpdateOperationsInput | string
   content?: Prisma.StringFieldUpdateOperationsInput | string
-  sources?: Prisma.StringFieldUpdateOperationsInput | string
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+}
+
+export type ArticleUncheckedUpdateManyWithoutDayInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
   language?: Prisma.StringFieldUpdateOperationsInput | string
+  title?: Prisma.StringFieldUpdateOperationsInput | string
+  content?: Prisma.StringFieldUpdateOperationsInput | string
+  sources?: Prisma.JsonNullValueInput | runtime.InputJsonValue
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
 
-
-/**
- * Count Type ArticleCountOutputType
- */
-
-export type ArticleCountOutputType = {
-  translations: number
-}
-
-export type ArticleCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  translations?: boolean | ArticleCountOutputTypeCountTranslationsArgs
-}
-
-/**
- * ArticleCountOutputType without action
- */
-export type ArticleCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the ArticleCountOutputType
-   */
-  select?: Prisma.ArticleCountOutputTypeSelect<ExtArgs> | null
-}
-
-/**
- * ArticleCountOutputType without action
- */
-export type ArticleCountOutputTypeCountTranslationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  where?: Prisma.TranslationWhereInput
-}
 
 
 export type ArticleSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  date?: boolean
+  dayId?: boolean
+  language?: boolean
   title?: boolean
   content?: boolean
   sources?: boolean
-  language?: boolean
-  translations?: boolean | Prisma.Article$translationsArgs<ExtArgs>
-  _count?: boolean | Prisma.ArticleCountOutputTypeDefaultArgs<ExtArgs>
+  createdAt?: boolean
+  updatedAt?: boolean
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["article"]>
 
 export type ArticleSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  date?: boolean
+  dayId?: boolean
+  language?: boolean
   title?: boolean
   content?: boolean
   sources?: boolean
-  language?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["article"]>
 
 export type ArticleSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
-  date?: boolean
+  dayId?: boolean
+  language?: boolean
   title?: boolean
   content?: boolean
   sources?: boolean
-  language?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["article"]>
 
 export type ArticleSelectScalar = {
   id?: boolean
-  date?: boolean
+  dayId?: boolean
+  language?: boolean
   title?: boolean
   content?: boolean
   sources?: boolean
-  language?: boolean
+  createdAt?: boolean
+  updatedAt?: boolean
 }
 
-export type ArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "date" | "title" | "content" | "sources" | "language", ExtArgs["result"]["article"]>
+export type ArticleOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "dayId" | "language" | "title" | "content" | "sources" | "createdAt" | "updatedAt", ExtArgs["result"]["article"]>
 export type ArticleInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  translations?: boolean | Prisma.Article$translationsArgs<ExtArgs>
-  _count?: boolean | Prisma.ArticleCountOutputTypeDefaultArgs<ExtArgs>
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
 }
-export type ArticleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
-export type ArticleIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type ArticleIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
+}
+export type ArticleIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  day?: boolean | Prisma.DayDefaultArgs<ExtArgs>
+}
 
 export type $ArticlePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Article"
   objects: {
-    translations: Prisma.$TranslationPayload<ExtArgs>[]
+    day: Prisma.$DayPayload<ExtArgs>
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    date: Date
+    dayId: number
+    language: string
     title: string
     content: string
-    sources: string
-    language: string
+    sources: runtime.JsonValue
+    createdAt: Date
+    updatedAt: Date
   }, ExtArgs["result"]["article"]>
   composites: {}
 }
@@ -943,7 +1042,7 @@ readonly fields: ArticleFieldRefs;
  */
 export interface Prisma__ArticleClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  translations<T extends Prisma.Article$translationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Article$translationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$TranslationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  day<T extends Prisma.DayDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DayDefaultArgs<ExtArgs>>): Prisma.Prisma__DayClient<runtime.Types.Result.GetResult<Prisma.$DayPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -974,11 +1073,13 @@ export interface Prisma__ArticleClient<T, Null = never, ExtArgs extends runtime.
  */
 export interface ArticleFieldRefs {
   readonly id: Prisma.FieldRef<"Article", 'Int'>
-  readonly date: Prisma.FieldRef<"Article", 'DateTime'>
+  readonly dayId: Prisma.FieldRef<"Article", 'Int'>
+  readonly language: Prisma.FieldRef<"Article", 'String'>
   readonly title: Prisma.FieldRef<"Article", 'String'>
   readonly content: Prisma.FieldRef<"Article", 'String'>
-  readonly sources: Prisma.FieldRef<"Article", 'String'>
-  readonly language: Prisma.FieldRef<"Article", 'String'>
+  readonly sources: Prisma.FieldRef<"Article", 'Json'>
+  readonly createdAt: Prisma.FieldRef<"Article", 'DateTime'>
+  readonly updatedAt: Prisma.FieldRef<"Article", 'DateTime'>
 }
     
 
@@ -1228,6 +1329,10 @@ export type ArticleCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    */
   data: Prisma.ArticleCreateManyInput | Prisma.ArticleCreateManyInput[]
   skipDuplicates?: boolean
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArticleIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1298,6 +1403,10 @@ export type ArticleUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensi
    * Limit how many Articles to update.
    */
   limit?: number
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ArticleIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1364,30 +1473,6 @@ export type ArticleDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.Inter
    * Limit how many Articles to delete.
    */
   limit?: number
-}
-
-/**
- * Article.translations
- */
-export type Article$translationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  /**
-   * Select specific fields to fetch from the Translation
-   */
-  select?: Prisma.TranslationSelect<ExtArgs> | null
-  /**
-   * Omit specific fields from the Translation
-   */
-  omit?: Prisma.TranslationOmit<ExtArgs> | null
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.TranslationInclude<ExtArgs> | null
-  where?: Prisma.TranslationWhereInput
-  orderBy?: Prisma.TranslationOrderByWithRelationInput | Prisma.TranslationOrderByWithRelationInput[]
-  cursor?: Prisma.TranslationWhereUniqueInput
-  take?: number
-  skip?: number
-  distinct?: Prisma.TranslationScalarFieldEnum | Prisma.TranslationScalarFieldEnum[]
 }
 
 /**

@@ -29,8 +29,8 @@ export * from "./enums"
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Articles
- * const articles = await prisma.article.findMany()
+ * // Fetch zero or more Days
+ * const days = await prisma.day.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -40,12 +40,12 @@ export type PrismaClient<LogOpts extends Prisma.LogLevel = never, OmitOpts exten
 export { Prisma }
 
 /**
+ * Model Day
+ * 
+ */
+export type Day = Prisma.DayModel
+/**
  * Model Article
  * 
  */
 export type Article = Prisma.ArticleModel
-/**
- * Model Translation
- * 
- */
-export type Translation = Prisma.TranslationModel

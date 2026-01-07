@@ -51,7 +51,6 @@ export class DeepLTranslator implements TranslationProvider {
       title: translatedTitle,
       content: translatedContent,
       language: targetLanguage,
-      isTranslated: true,
     };
 
     console.log(`[DeepLTranslator] Translation completed for ${targetLanguage}`);

@@ -20,7 +20,7 @@ const config: runtime.GetPrismaClientConfig = {
   "clientVersion": "7.1.0",
   "engineVersion": "ab635e6b9d606fa5c8fb8b1a7f909c3c3c1c98ba",
   "activeProvider": "postgresql",
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Article {\n  id       Int      @id @default(autoincrement())\n  date     DateTime @unique\n  title    String\n  content  String\n  sources  String\n  language String\n\n  translations Translation[]\n\n  @@map(\"articles\")\n}\n\nmodel Translation {\n  id        Int      @id @default(autoincrement())\n  articleId Int\n  language  String\n  title     String\n  content   String\n  createdAt DateTime @default(now())\n\n  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)\n\n  @@map(\"translations\")\n}\n",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\ngenerator client {\n  provider = \"prisma-client\"\n  output   = \"../../app/generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n}\n\nmodel Day {\n  id       Int       @id @default(autoincrement())\n  date     String    @unique\n  year     Int\n  month    Int\n  day      Int\n  articles Article[]\n\n  @@map(\"day\")\n}\n\nmodel Article {\n  id        Int      @id @default(autoincrement())\n  dayId     Int\n  language  String\n  title     String\n  content   String\n  sources   Json\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n\n  day Day @relation(fields: [dayId], references: [id], onDelete: Cascade)\n\n  @@unique([dayId, language])\n  @@map(\"articles\")\n}\n",
   "runtimeDataModel": {
     "models": {},
     "enums": {},
@@ -28,7 +28,7 @@ const config: runtime.GetPrismaClientConfig = {
   }
 }
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"Article\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"date\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sources\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"language\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"translations\",\"kind\":\"object\",\"type\":\"Translation\",\"relationName\":\"ArticleToTranslation\"}],\"dbName\":\"articles\"},\"Translation\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"articleId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"language\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"article\",\"kind\":\"object\",\"type\":\"Article\",\"relationName\":\"ArticleToTranslation\"}],\"dbName\":\"translations\"}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Day\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"date\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"year\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"month\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"day\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"articles\",\"kind\":\"object\",\"type\":\"Article\",\"relationName\":\"ArticleToDay\"}],\"dbName\":\"day\"},\"Article\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"dayId\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"language\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"title\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"content\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"sources\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"day\",\"kind\":\"object\",\"type\":\"Day\",\"relationName\":\"ArticleToDay\"}],\"dbName\":\"articles\"}},\"enums\":{},\"types\":{}}")
 
 async function decodeBase64AsWasm(wasmBase64: string): Promise<WebAssembly.Module> {
   const { Buffer } = await import('node:buffer')
@@ -58,8 +58,8 @@ export interface PrismaClientConstructor {
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Articles
-   * const articles = await prisma.article.findMany()
+   * // Fetch zero or more Days
+   * const days = await prisma.day.findMany()
    * ```
    * 
    * Read more in our [docs](https://pris.ly/d/client).
@@ -80,8 +80,8 @@ export interface PrismaClientConstructor {
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Articles
- * const articles = await prisma.article.findMany()
+ * // Fetch zero or more Days
+ * const days = await prisma.day.findMany()
  * ```
  * 
  * Read more in our [docs](https://pris.ly/d/client).
@@ -175,6 +175,16 @@ export interface PrismaClient<
   }>>
 
       /**
+   * `prisma.day`: Exposes CRUD operations for the **Day** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Days
+    * const days = await prisma.day.findMany()
+    * ```
+    */
+  get day(): Prisma.DayDelegate<ExtArgs, { omit: OmitOpts }>;
+
+  /**
    * `prisma.article`: Exposes CRUD operations for the **Article** model.
     * Example usage:
     * ```ts
@@ -183,16 +193,6 @@ export interface PrismaClient<
     * ```
     */
   get article(): Prisma.ArticleDelegate<ExtArgs, { omit: OmitOpts }>;
-
-  /**
-   * `prisma.translation`: Exposes CRUD operations for the **Translation** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Translations
-    * const translations = await prisma.translation.findMany()
-    * ```
-    */
-  get translation(): Prisma.TranslationDelegate<ExtArgs, { omit: OmitOpts }>;
 }
 
 export function getPrismaClientClass(): PrismaClientConstructor {

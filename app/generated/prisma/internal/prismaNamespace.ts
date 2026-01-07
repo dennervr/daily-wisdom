@@ -384,8 +384,8 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 
 export const ModelName = {
-  Article: 'Article',
-  Translation: 'Translation'
+  Day: 'Day',
+  Article: 'Article'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -401,10 +401,84 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "article" | "translation"
+    modelProps: "day" | "article"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
+    Day: {
+      payload: Prisma.$DayPayload<ExtArgs>
+      fields: Prisma.DayFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.DayFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.DayFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        findFirst: {
+          args: Prisma.DayFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.DayFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        findMany: {
+          args: Prisma.DayFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>[]
+        }
+        create: {
+          args: Prisma.DayCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        createMany: {
+          args: Prisma.DayCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.DayCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>[]
+        }
+        delete: {
+          args: Prisma.DayDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        update: {
+          args: Prisma.DayUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        deleteMany: {
+          args: Prisma.DayDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.DayUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.DayUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>[]
+        }
+        upsert: {
+          args: Prisma.DayUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$DayPayload>
+        }
+        aggregate: {
+          args: Prisma.DayAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateDay>
+        }
+        groupBy: {
+          args: Prisma.DayGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DayGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.DayCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.DayCountAggregateOutputType> | number
+        }
+      }
+    }
     Article: {
       payload: Prisma.$ArticlePayload<ExtArgs>
       fields: Prisma.ArticleFieldRefs
@@ -479,80 +553,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-    Translation: {
-      payload: Prisma.$TranslationPayload<ExtArgs>
-      fields: Prisma.TranslationFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.TranslationFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.TranslationFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        findFirst: {
-          args: Prisma.TranslationFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.TranslationFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        findMany: {
-          args: Prisma.TranslationFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>[]
-        }
-        create: {
-          args: Prisma.TranslationCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        createMany: {
-          args: Prisma.TranslationCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.TranslationCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>[]
-        }
-        delete: {
-          args: Prisma.TranslationDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        update: {
-          args: Prisma.TranslationUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        deleteMany: {
-          args: Prisma.TranslationDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.TranslationUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.TranslationUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>[]
-        }
-        upsert: {
-          args: Prisma.TranslationUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$TranslationPayload>
-        }
-        aggregate: {
-          args: Prisma.TranslationAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateTranslation>
-        }
-        groupBy: {
-          args: Prisma.TranslationGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TranslationGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.TranslationCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.TranslationCountAggregateOutputType> | number
-        }
-      }
-    }
   }
 } & {
   other: {
@@ -592,28 +592,29 @@ export const TransactionIsolationLevel = runtime.makeStrictEnum({
 export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-export const ArticleScalarFieldEnum = {
+export const DayScalarFieldEnum = {
   id: 'id',
   date: 'date',
-  title: 'title',
-  content: 'content',
-  sources: 'sources',
-  language: 'language'
+  year: 'year',
+  month: 'month',
+  day: 'day'
 } as const
 
-export type ArticleScalarFieldEnum = (typeof ArticleScalarFieldEnum)[keyof typeof ArticleScalarFieldEnum]
+export type DayScalarFieldEnum = (typeof DayScalarFieldEnum)[keyof typeof DayScalarFieldEnum]
 
 
-export const TranslationScalarFieldEnum = {
+export const ArticleScalarFieldEnum = {
   id: 'id',
-  articleId: 'articleId',
+  dayId: 'dayId',
   language: 'language',
   title: 'title',
   content: 'content',
-  createdAt: 'createdAt'
+  sources: 'sources',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 } as const
 
-export type TranslationScalarFieldEnum = (typeof TranslationScalarFieldEnum)[keyof typeof TranslationScalarFieldEnum]
+export type ArticleScalarFieldEnum = (typeof ArticleScalarFieldEnum)[keyof typeof ArticleScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -624,12 +625,28 @@ export const SortOrder = {
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
 
 
+export const JsonNullValueInput = {
+  JsonNull: JsonNull
+} as const
+
+export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
 export const QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
 } as const
 
 export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
+
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull
+} as const
+
+export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
 
 
 
@@ -653,20 +670,6 @@ export type ListIntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel,
 
 
 /**
- * Reference to a field of type 'DateTime'
- */
-export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
-    
-
-
-/**
- * Reference to a field of type 'DateTime[]'
- */
-export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
-    
-
-
-/**
  * Reference to a field of type 'String'
  */
 export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String'>
@@ -677,6 +680,34 @@ export type StringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 
  * Reference to a field of type 'String[]'
  */
 export type ListStringFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'String[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Json'
+ */
+export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+/**
+ * Reference to a field of type 'QueryMode'
+ */
+export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime'
+ */
+export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime'>
+    
+
+
+/**
+ * Reference to a field of type 'DateTime[]'
+ */
+export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
     
 
 
@@ -788,8 +819,8 @@ export type PrismaClientOptions = ({
   comments?: runtime.SqlCommenterPlugin[]
 }
 export type GlobalOmitConfig = {
+  day?: Prisma.DayOmit
   article?: Prisma.ArticleOmit
-  translation?: Prisma.TranslationOmit
 }
 
 /* Types for Logging */

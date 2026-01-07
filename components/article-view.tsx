@@ -21,7 +21,7 @@ export function ArticleView({ data }: ArticleViewProps) {
       <Card className="border-none shadow-none bg-transparent">
         <CardHeader className="text-center pb-8">
           <p className="text-muted-foreground text-sm uppercase tracking-widest mb-2 font-medium">{data.date}</p>
-          {data.isTranslated && (
+          {data.language !== 'en' && (
             <Badge variant="secondary" className="w-fit mx-auto">
               {t('article.translatedInto', { language: SUPPORTED_LANGUAGES[data.language].name })}
             </Badge>
