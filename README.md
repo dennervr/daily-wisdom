@@ -11,10 +11,57 @@ A minimalist publication delivering daily wisdom through AI-generated articles o
 
 ## Article Generation
 
+### Automatic Generation
+
 Articles are automatically generated daily at midnight UTC using a cron scheduler. The system:
 1. Generates an English article using Gemini with Google Search grounding
 2. Automatically translates the article to all supported languages
 3. Caches translations in the database for performance
+
+### Manual Generation (CLI)
+
+You can manually generate articles using the CLI command:
+
+```bash
+# Generate article for today
+npm run generate
+
+# Generate for specific date
+npm run generate -- --date 2026-01-10
+
+# Force regenerate even if exists
+npm run generate -- --date 2026-01-10 --force
+
+# Generate only translations (skip English)
+npm run generate -- --date 2026-01-10 --translations-only
+
+# Quiet mode (suppress non-error output)
+npm run generate -- --date 2026-01-10 --quiet
+
+# Verbose mode (detailed logs)
+npm run generate -- --date 2026-01-10 --verbose
+
+# Show help
+npm run generate -- --help
+```
+
+#### CLI Options
+
+| Option | Alias | Description | Default |
+|--------|-------|-------------|---------|
+| `--date <YYYY-MM-DD>` | `-d` | Date for article generation | Today |
+| `--force` | `-f` | Regenerate even if exists | `false` |
+| `--translations-only` | `-t` | Skip English, only translations | `false` |
+| `--verbose` | `-v` | Show detailed logs | `false` |
+| `--quiet` | `-q` | Suppress non-error output | `false` |
+| `--help` | `-h` | Display help information | - |
+
+#### Notes
+
+- The CLI connects to the database using `DATABASE_URL` from your `.env` file
+- Generation may take 1-2 minutes depending on AI API response time
+- All supported languages are generated automatically unless `--translations-only` is used
+- Use `--force` to regenerate articles that already exist in the database
 
 ## Translation Configuration
 
