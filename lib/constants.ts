@@ -50,5 +50,5 @@ export const UI_TEXT = {
   sourceTitle: "Sources",
   aiWarning: "This content is AI-generated. Always verify important information.",
   footer: "Daily Wisdom",
-  contact: "hello@dailywisdom.app",
+  contact: "dennervrp@gmail.com",
 }
