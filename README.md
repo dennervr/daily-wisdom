@@ -43,8 +43,8 @@ DEEPL_API_KEY=your_deepl_api_key_here
 # Optional - defaults to free tier API
 DEEPL_API_URL=https://api-free.deepl.com/v2
 
-# Database URL for Prisma
-DATABASE_URL=file:./dev.db
+# Database URL for PostgreSQL (required)
+DATABASE_URL=postgresql://dailywisdom:dailywisdom_password@postgres:5432/dailywisdom
 
 # i18n Configuration (optional)
 # Default locale (defaults to 'en' if not set)
@@ -62,35 +62,82 @@ The application includes a comprehensive i18n/l10n system supporting 11 language
 
 ### Prerequisites
 
-- Node.js 22+
-- pnpm (recommended) or npm
+- Node.js 24+
+- npm or pnpm
+- PostgreSQL (for local development) or Docker
 
 ### Installation
 
+#### Local Development
+
 ```bash
 # Install dependencies
-pnpm install
+npm install
 
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your API keys and PostgreSQL connection
+
+# Generate Drizzle schema
+npm run db:generate
+
+# Apply database migrations
+npm run db:push
+
+# Start development server
+npm run dev
+```
+
+#### Docker Development (Recommended)
+
+```bash
 # Set up environment variables
 cp .env.example .env
 # Edit .env with your API keys
 
-# Run database migrations
-pnpm db:migrate
+# Start all services (PostgreSQL + App)
+docker compose up -d
 
-# Start development server
-pnpm dev
+# View logs
+docker compose logs -f app
+
+# Access Drizzle Studio (database GUI)
+npm run db:studio
 ```
 
 ### Production Build
 
 ```bash
 # Build the application
-pnpm build
+npm run build
 
 # Start production server
-pnpm start
+npm start
 ```
+
+## Database Management
+
+This project uses [Drizzle ORM](https://orm.drizzle.team/) with PostgreSQL.
+
+### Available Commands
+
+```bash
+# Generate migrations from schema changes
+npm run db:generate
+
+# Apply schema to database (development)
+npm run db:push
+
+# Run migrations (production)
+npm run db:migrate
+
+# Open Drizzle Studio (database GUI)
+npm run db:studio
+```
+
+### Schema Location
+
+Database schema is defined in `lib/db/schema.ts` using Drizzle's TypeScript schema builder.
 
 ## Docker Deployment
 
@@ -99,17 +146,41 @@ pnpm start
 1. **Setup environment:**
    ```bash
    cp .env.example .env
-   # Edit .env with your API keys and ensure DATABASE_URL uses PostgreSQL
+   # Edit .env with your API keys
+   # DATABASE_URL is pre-configured for Docker PostgreSQL
    ```
 
 2. **Start the application:**
    ```bash
-   docker-compose up -d
+   docker compose up -d
    ```
 
 3. **Access:**
    - Application: http://localhost:3000
    - Database: localhost:5432
+   - Drizzle Studio: Run `npm run db:studio` locally
+
+### Docker Services
+
+- **postgres**: PostgreSQL 18 database
+- **migrate**: Applies database schema on startup
+- **app**: Next.js application
+
+### Useful Commands
+
+```bash
+# View logs
+docker compose logs -f app
+
+# Restart services
+docker compose restart
+
+# Stop services
+docker compose down
+
+# Stop and remove all data
+docker compose down -v
+```
 
 
 ## License

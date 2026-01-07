@@ -1,4 +1,6 @@
-import prisma from '../lib/prisma'
+import { db } from './db'
+import { day, articles } from './db/schema'
+import { eq, and, count as drizzleCount } from 'drizzle-orm'
 import { toArticleData, parseDateSafe } from './utils'
 import type { ArticleData } from './types'
 import { SUPPORTED_LANGUAGES, type LanguageCode } from './constants'
@@ -34,16 +36,25 @@ export const getArticle = async (
   const date = normalizeDate(dateStr)
   if (!date) return null
 
-  const day = await prisma.day.findUnique({ where: { date } })
-  if (!day) return null
+  // Find day
+  const [dayResult] = await db.select().from(day).where(eq(day.date, date))
+  if (!dayResult) return null
 
-  const articleRow = await prisma.article.findFirst({ 
-    where: { dayId: day.id, language }, 
-    include: { day: true } 
-  })
-  if (!articleRow) return null
+  // Find article with join
+  const [result] = await db
+    .select()
+    .from(articles)
+    .innerJoin(day, eq(articles.dayId, day.id))
+    .where(and(
+      eq(articles.dayId, dayResult.id),
+      eq(articles.language, language)
+    ))
+  
+  if (!result) return null
 
-  return toArticleData({ ...articleRow, day }, articleRow.language as LanguageCode)
+  // Merge article and day data
+  const articleRow = { ...result.articles, day: result.day }
+  return toArticleData(articleRow, language)
 }
 
 /** Save or update an article (base or translation). Uses Day + Article(dayId, language) model. */
@@ -53,57 +64,82 @@ export const saveArticle = async (article: ArticleData): Promise<void> => {
 
   // Upsert Day record
   const [y, m, d] = date.split('-').map(Number)
-  const day = await prisma.day.upsert({
-    where: { date },
-    update: {},
-    create: { date, year: y, month: m, day: d }
-  })
+  const [dayResult] = await db
+    .insert(day)
+    .values({ date, year: y, month: m, day: d })
+    .onConflictDoUpdate({
+      target: day.date,
+      set: { date } // noop update
+    })
+    .returning()
 
   const sourcesVal = article.sources ?? []
 
   // Upsert Article for the given language
-  await prisma.article.upsert({
-    where: { dayId_language: { dayId: day.id, language: article.language } },
-    update: {
-      title: article.title,
-      content: article.content,
-      sources: sourcesVal as any,
-    },
-    create: {
-      dayId: day.id,
+  await db
+    .insert(articles)
+    .values({
+      dayId: dayResult.id,
       language: article.language,
       title: article.title,
       content: article.content,
-      sources: sourcesVal as any,
-    }
-  })
+      sources: sourcesVal,
+    })
+    .onConflictDoUpdate({
+      target: [articles.dayId, articles.language],
+      set: {
+        title: article.title,
+        content: article.content,
+        sources: sourcesVal,
+        updatedAt: new Date(),
+      }
+    })
 }
 
 export const hasArticleForDate = async (dateStr: string): Promise<boolean> => {
   const date = normalizeDate(dateStr)
   if (!date) return false
-  const day = await prisma.day.findUnique({ where: { date } })
-  if (!day) return false
-  const count = await prisma.article.count({ where: { dayId: day.id, language: DEFAULT_LANGUAGE } })
-  return count > 0
+  
+  const [dayResult] = await db.select().from(day).where(eq(day.date, date))
+  if (!dayResult) return false
+  
+  const [result] = await db
+    .select({ count: drizzleCount() })
+    .from(articles)
+    .where(and(
+      eq(articles.dayId, dayResult.id),
+      eq(articles.language, DEFAULT_LANGUAGE)
+    ))
+  
+  return (result?.count ?? 0) > 0
 }
 
 export const hasTranslation = async (dateStr: string, language: LanguageCode): Promise<boolean> => {
   const date = normalizeDate(dateStr)
   if (!date) return false
-  const day = await prisma.day.findUnique({ where: { date } })
-  if (!day) return false
-  const count = await prisma.article.count({ where: { dayId: day.id, language } })
-  return count > 0
+  
+  const [dayResult] = await db.select().from(day).where(eq(day.date, date))
+  if (!dayResult) return false
+  
+  const [result] = await db
+    .select({ count: drizzleCount() })
+    .from(articles)
+    .where(and(
+      eq(articles.dayId, dayResult.id),
+      eq(articles.language, language)
+    ))
+  
+  return (result?.count ?? 0) > 0
 }
 
 export const resetDatabase = async (): Promise<void> => {
-  await prisma.article.deleteMany()
-  await prisma.day.deleteMany()
+  await db.delete(articles)
+  await db.delete(day)
 }
 
 export const close = async (): Promise<void> => {
-  await prisma.$disconnect()
+  // Close the pg pool
+  await db.$client.end()
 }
 
-export const prismaClient = prisma
+export const dbClient = db

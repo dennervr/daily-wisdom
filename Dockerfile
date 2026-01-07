@@ -1,4 +1,4 @@
-# Multi-stage Dockerfile for Next.js application with Prisma
+# Multi-stage Dockerfile for Next.js application with Drizzle
 
 # Stage 1: Dependencies (install all deps for build)
 FROM node:24-alpine AS deps
@@ -24,15 +24,9 @@ WORKDIR /app
 
 # Copy dependencies from deps stage and only necessary project files to minimize context
 COPY --from=deps /app/node_modules ./node_modules
-COPY package.json pnpm-lock.yaml* package-lock.json* next.config.* tsconfig.json prisma ./
+COPY package.json pnpm-lock.yaml* package-lock.json* next.config.* tsconfig.json ./
 # Copy rest of files (this keeps layer caching effective)
 COPY . .
-
-# Set dummy DATABASE_URL for Prisma generate (actual URL will be provided at runtime)
-ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy"
-
-# Generate Prisma Client (avoid installing dev-only tooling at runtime)
-RUN npx prisma generate --schema=lib/db/schema.prisma
 
 # Build Next.js application
 # Disable telemetry during build
@@ -60,12 +54,7 @@ ENV NEXT_TELEMETRY_DISABLED=1
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone .
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Copy Prisma-related files needed at runtime (only what's required)
-COPY --from=builder --chown=nextjs:nodejs /app/prisma ./prisma
-COPY --from=builder --chown=nextjs:nodejs /app/app/generated/prisma ./app/generated/prisma
-
 # Copy runtime-only modules that are not part of the standalone bundle
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@prisma ./node_modules/@prisma
 COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@google ./node_modules/@google
 
 # Copy locales and other static assets
