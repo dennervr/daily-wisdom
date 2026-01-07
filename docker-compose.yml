@@ -14,19 +14,6 @@ services:
       timeout: 5s
       retries: 5
 
-  migrate:
-    build:
-      context: .
-      dockerfile: Dockerfile
-      target: builder
-    container_name: daily-wisdom-migrate
-    env_file: .env
-    depends_on:
-      postgres:
-        condition: service_healthy
-    command: sh -c "npm run db:push"
-    restart: "no"
-
   app:
     build:
       context: .
@@ -39,8 +26,6 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-      migrate:
-        condition: service_completed_successfully
     healthcheck:
       test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/api/health', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)}).on('error', () => process.exit(1))"]
       interval: 30s

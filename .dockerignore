@@ -60,8 +60,8 @@ dev.db
 *.db
 *.db-journal
 
-# Drizzle
-drizzle/
+# Drizzle (allow migrations folder for production, only ignore local DB files)
+# drizzle/ - commented out to allow migration files in Docker
 
 # Documentation
 README.md

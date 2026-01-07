@@ -10,9 +10,13 @@
 export async function register() {
   // Only run on server-side
   if (process.env.NEXT_RUNTIME === 'nodejs') {
+    const { runMigrations } = await import('./lib/migrate');
     const { initializeTranslationService } = await import('./lib/translation/translationService');
     
     console.log('\n🚀 Daily Wisdom Application Starting...\n');
+    
+    // Run migrations first (before any DB operations)
+    await runMigrations();
     
     // Initialize translation service and log provider status
     await initializeTranslationService();
