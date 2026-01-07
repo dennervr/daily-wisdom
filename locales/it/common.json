@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Saggezza Quotidiana",
+    "description": "Una pubblicazione quotidiana minimalista incentrata su filosofia, scienza e storia."
+  },
+  "navbar": {
+    "title": "Saggezza Quotidiana",
+    "selectDate": "Scegli data",
+    "selectLanguage": "Seleziona lingua",
+    "toggleTheme": "Cambia tema"
+  },
+  "loading": {
+    "gathering": "Raccolta di saggezza...",
+    "translating": "Traduzione della saggezza...",
+    "subtitle": "Attendere mentre prepariamo le riflessioni di oggi"
+  },
+  "error": {
+    "title": "Impossibile recuperare la saggezza",
+    "retry": "Riprova",
+    "notFound": "Articolo non trovato",
+    "serverError": "Errore interno del server"
+  },
+  "article": {
+    "translatedInto": "Tradotto in {language}",
+    "sources": "Fonti",
+    "noSources": "Nessuna fonte specifica citata.",
+    "aiWarning": "Questo contenuto è generato dall'IA. Verificare sempre le informazioni importanti."
+  },
+  "footer": {
+    "title": "Saggezza Quotidiana",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Oggi",
+    "yesterday": "Ieri"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d MMMM yyyy",
+    "dateFull": "EEEE d MMMM yyyy"
+  }
+}

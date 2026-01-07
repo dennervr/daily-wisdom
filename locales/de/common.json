@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Tägliche Weisheit",
+    "description": "Eine minimalistische tägliche Veröffentlichung über Philosophie, Wissenschaft und Geschichte."
+  },
+  "navbar": {
+    "title": "Tägliche Weisheit",
+    "selectDate": "Datum wählen",
+    "selectLanguage": "Sprache auswählen",
+    "toggleTheme": "Thema wechseln"
+  },
+  "loading": {
+    "gathering": "Weisheit sammeln...",
+    "translating": "Weisheit übersetzen...",
+    "subtitle": "Bitte warten Sie, während wir die heutigen Erkenntnisse vorbereiten"
+  },
+  "error": {
+    "title": "Weisheit konnte nicht abgerufen werden",
+    "retry": "Erneut versuchen",
+    "notFound": "Artikel nicht gefunden",
+    "serverError": "Interner Serverfehler"
+  },
+  "article": {
+    "translatedInto": "Übersetzt ins {language}",
+    "sources": "Quellen",
+    "noSources": "Keine spezifischen Quellen zitiert.",
+    "aiWarning": "Dieser Inhalt ist KI-generiert. Überprüfen Sie immer wichtige Informationen."
+  },
+  "footer": {
+    "title": "Tägliche Weisheit",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Heute",
+    "yesterday": "Gestern"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d. MMMM yyyy",
+    "dateFull": "EEEE, d. MMMM yyyy"
+  }
+}

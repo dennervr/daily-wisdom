@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Ежедневная Мудрость",
+    "description": "Минималистичная ежедневная публикация о философии, науке и истории."
+  },
+  "navbar": {
+    "title": "Ежедневная Мудрость",
+    "selectDate": "Выбрать дату",
+    "selectLanguage": "Выбрать язык",
+    "toggleTheme": "Сменить тему"
+  },
+  "loading": {
+    "gathering": "Собираем мудрость...",
+    "translating": "Переводим мудрость...",
+    "subtitle": "Пожалуйста, подождите, пока мы подготовим сегодняшние размышления"
+  },
+  "error": {
+    "title": "Не удается получить мудрость",
+    "retry": "Попробовать снова",
+    "notFound": "Статья не найдена",
+    "serverError": "Внутренняя ошибка сервера"
+  },
+  "article": {
+    "translatedInto": "Переведено на {language}",
+    "sources": "Источники",
+    "noSources": "Конкретные источники не указаны.",
+    "aiWarning": "Этот контент создан ИИ. Всегда проверяйте важную информацию."
+  },
+  "footer": {
+    "title": "Ежедневная Мудрость",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Сегодня",
+    "yesterday": "Вчера"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d MMMM yyyy 'г.'",
+    "dateFull": "EEEE, d MMMM yyyy 'г.'"
+  }
+}

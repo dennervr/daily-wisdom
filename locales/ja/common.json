@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "デイリーウィズダム",
+    "description": "哲学、科学、歴史に焦点を当てたミニマリストな日刊出版物。"
+  },
+  "navbar": {
+    "title": "デイリーウィズダム",
+    "selectDate": "日付を選択",
+    "selectLanguage": "言語を選択",
+    "toggleTheme": "テーマを切り替え"
+  },
+  "loading": {
+    "gathering": "知恵を集めています...",
+    "translating": "知恵を翻訳しています...",
+    "subtitle": "今日の洞察を準備していますので、お待ちください"
+  },
+  "error": {
+    "title": "知恵を取得できません",
+    "retry": "再試行",
+    "notFound": "記事が見つかりません",
+    "serverError": "内部サーバーエラー"
+  },
+  "article": {
+    "translatedInto": "{language}に翻訳されました",
+    "sources": "出典",
+    "noSources": "特定の出典は引用されていません。",
+    "aiWarning": "このコンテンツはAIによって生成されています。重要な情報は常に確認してください。"
+  },
+  "footer": {
+    "title": "デイリーウィズダム",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "今日",
+    "yesterday": "昨日"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "yyyy年M月d日",
+    "dateFull": "yyyy年M月d日 EEEE"
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Daily Wisdom",
+    "description": "A minimalist daily publication focusing on philosophy, science, and history."
+  },
+  "navbar": {
+    "title": "Daily Wisdom",
+    "selectDate": "Choose date",
+    "selectLanguage": "Select language",
+    "toggleTheme": "Toggle theme"
+  },
+  "loading": {
+    "gathering": "Gathering wisdom...",
+    "translating": "Translating wisdom...",
+    "subtitle": "Please wait while we prepare today's insights"
+  },
+  "error": {
+    "title": "Unable to retrieve wisdom",
+    "retry": "Try Again",
+    "notFound": "Article not found",
+    "serverError": "Internal server error"
+  },
+  "article": {
+    "translatedInto": "Translated into {language}",
+    "sources": "Sources",
+    "noSources": "No specific sources cited.",
+    "aiWarning": "This content is AI-generated. Always verify important information."
+  },
+  "footer": {
+    "title": "Daily Wisdom",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Today",
+    "yesterday": "Yesterday"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "MMMM d, yyyy",
+    "dateFull": "EEEE, MMMM d, yyyy"
+  }
+}

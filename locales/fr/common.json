@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Sagesse Quotidienne",
+    "description": "Une publication minimaliste quotidienne axée sur la philosophie, la science et l'histoire."
+  },
+  "navbar": {
+    "title": "Sagesse Quotidienne",
+    "selectDate": "Choisir la date",
+    "selectLanguage": "Sélectionner la langue",
+    "toggleTheme": "Changer le thème"
+  },
+  "loading": {
+    "gathering": "Collecte de sagesse...",
+    "translating": "Traduction de la sagesse...",
+    "subtitle": "Veuillez patienter pendant que nous préparons les réflexions d'aujourd'hui"
+  },
+  "error": {
+    "title": "Impossible de récupérer la sagesse",
+    "retry": "Réessayer",
+    "notFound": "Article non trouvé",
+    "serverError": "Erreur interne du serveur"
+  },
+  "article": {
+    "translatedInto": "Traduit en {language}",
+    "sources": "Sources",
+    "noSources": "Aucune source spécifique citée.",
+    "aiWarning": "Ce contenu est généré par l'IA. Vérifiez toujours les informations importantes."
+  },
+  "footer": {
+    "title": "Sagesse Quotidienne",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Aujourd'hui",
+    "yesterday": "Hier"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d MMMM yyyy",
+    "dateFull": "EEEE d MMMM yyyy"
+  }
+}

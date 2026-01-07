@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "데일리 위즈덤",
+    "description": "철학, 과학, 역사에 초점을 맞춘 미니멀리스트 일간 출판물."
+  },
+  "navbar": {
+    "title": "데일리 위즈덤",
+    "selectDate": "날짜 선택",
+    "selectLanguage": "언어 선택",
+    "toggleTheme": "테마 전환"
+  },
+  "loading": {
+    "gathering": "지혜 수집 중...",
+    "translating": "지혜 번역 중...",
+    "subtitle": "오늘의 통찰을 준비하는 동안 잠시 기다려 주세요"
+  },
+  "error": {
+    "title": "지혜를 검색할 수 없습니다",
+    "retry": "다시 시도",
+    "notFound": "기사를 찾을 수 없습니다",
+    "serverError": "내부 서버 오류"
+  },
+  "article": {
+    "translatedInto": "{language}로 번역됨",
+    "sources": "출처",
+    "noSources": "특정 출처가 인용되지 않았습니다.",
+    "aiWarning": "이 콘텐츠는 AI가 생성한 것입니다. 중요한 정보는 항상 확인하세요."
+  },
+  "footer": {
+    "title": "데일리 위즈덤",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "오늘",
+    "yesterday": "어제"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "yyyy년 M월 d일",
+    "dateFull": "yyyy년 M월 d일 EEEE"
+  }
+}

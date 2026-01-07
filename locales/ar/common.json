@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "الحكمة اليومية",
+    "description": "منشور يومي بسيط يركز على الفلسفة والعلوم والتاريخ."
+  },
+  "navbar": {
+    "title": "الحكمة اليومية",
+    "selectDate": "اختر التاريخ",
+    "selectLanguage": "اختر اللغة",
+    "toggleTheme": "تبديل السمة"
+  },
+  "loading": {
+    "gathering": "جمع الحكمة...",
+    "translating": "ترجمة الحكمة...",
+    "subtitle": "يرجى الانتظار بينما نعد رؤى اليوم"
+  },
+  "error": {
+    "title": "تعذر استرداد الحكمة",
+    "retry": "حاول مرة أخرى",
+    "notFound": "المقال غير موجود",
+    "serverError": "خطأ داخلي في الخادم"
+  },
+  "article": {
+    "translatedInto": "مترجم إلى {language}",
+    "sources": "المصادر",
+    "noSources": "لم يتم الاستشهاد بمصادر محددة.",
+    "aiWarning": "هذا المحتوى مُنشأ بواسطة الذكاء الاصطناعي. تحقق دائمًا من المعلومات المهمة."
+  },
+  "footer": {
+    "title": "الحكمة اليومية",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "اليوم",
+    "yesterday": "أمس"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d MMMM yyyy",
+    "dateFull": "EEEE، d MMMM yyyy"
+  }
+}

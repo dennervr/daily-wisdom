@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "每日智慧",
+    "description": "专注于哲学、科学和历史的极简主义每日出版物。"
+  },
+  "navbar": {
+    "title": "每日智慧",
+    "selectDate": "选择日期",
+    "selectLanguage": "选择语言",
+    "toggleTheme": "切换主题"
+  },
+  "loading": {
+    "gathering": "收集智慧中...",
+    "translating": "翻译智慧中...",
+    "subtitle": "请稍候，我们正在准备今天的见解"
+  },
+  "error": {
+    "title": "无法获取智慧",
+    "retry": "重试",
+    "notFound": "未找到文章",
+    "serverError": "内部服务器错误"
+  },
+  "article": {
+    "translatedInto": "已翻译为{language}",
+    "sources": "来源",
+    "noSources": "未引用具体来源。",
+    "aiWarning": "此内容由AI生成。请始终验证重要信息。"
+  },
+  "footer": {
+    "title": "每日智慧",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "今天",
+    "yesterday": "昨天"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "yyyy年M月d日",
+    "dateFull": "yyyy年M月d日 EEEE"
+  }
+}

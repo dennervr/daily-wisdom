@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Sabiduría Diaria",
+    "description": "Una publicación minimalista diaria centrada en filosofía, ciencia e historia."
+  },
+  "navbar": {
+    "title": "Sabiduría Diaria",
+    "selectDate": "Elegir fecha",
+    "selectLanguage": "Seleccionar idioma",
+    "toggleTheme": "Cambiar tema"
+  },
+  "loading": {
+    "gathering": "Recopilando sabiduría...",
+    "translating": "Traduciendo sabiduría...",
+    "subtitle": "Por favor espera mientras preparamos las reflexiones de hoy"
+  },
+  "error": {
+    "title": "No se puede recuperar la sabiduría",
+    "retry": "Intentar de nuevo",
+    "notFound": "Artículo no encontrado",
+    "serverError": "Error interno del servidor"
+  },
+  "article": {
+    "translatedInto": "Traducido al {language}",
+    "sources": "Fuentes",
+    "noSources": "No se citaron fuentes específicas.",
+    "aiWarning": "Este contenido es generado por IA. Siempre verifica la información importante."
+  },
+  "footer": {
+    "title": "Sabiduría Diaria",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Hoy",
+    "yesterday": "Ayer"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d 'de' MMMM 'de' yyyy",
+    "dateFull": "EEEE, d 'de' MMMM 'de' yyyy"
+  }
+}

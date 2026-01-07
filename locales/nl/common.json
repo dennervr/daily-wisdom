@@ -1,0 +1,42 @@
+{
+  "app": {
+    "title": "Dagelijkse Wijsheid",
+    "description": "Een minimalistische dagelijkse publicatie gericht op filosofie, wetenschap en geschiedenis."
+  },
+  "navbar": {
+    "title": "Dagelijkse Wijsheid",
+    "selectDate": "Kies datum",
+    "selectLanguage": "Selecteer taal",
+    "toggleTheme": "Wissel thema"
+  },
+  "loading": {
+    "gathering": "Wijsheid verzamelen...",
+    "translating": "Wijsheid vertalen...",
+    "subtitle": "Een moment geduld terwijl we de inzichten van vandaag voorbereiden"
+  },
+  "error": {
+    "title": "Kan wijsheid niet ophalen",
+    "retry": "Probeer opnieuw",
+    "notFound": "Artikel niet gevonden",
+    "serverError": "Interne serverfout"
+  },
+  "article": {
+    "translatedInto": "Vertaald naar {language}",
+    "sources": "Bronnen",
+    "noSources": "Geen specifieke bronnen geciteerd.",
+    "aiWarning": "Deze inhoud is gegenereerd door AI. Verifieer altijd belangrijke informatie."
+  },
+  "footer": {
+    "title": "Dagelijkse Wijsheid",
+    "contact": "hello@dailywisdom.app"
+  },
+  "date": {
+    "today": "Vandaag",
+    "yesterday": "Gisteren"
+  },
+  "format": {
+    "dateShort": "yyyy-MM-dd",
+    "dateLong": "d MMMM yyyy",
+    "dateFull": "EEEE d MMMM yyyy"
+  }
+}
