@@ -22,7 +22,6 @@ export class ArticleBuilder {
       date: targetDate,
       sources,
       language: SUPPORTED_LANGUAGES['en'].code,
-      isTranslated: false,
     };
   }
 }

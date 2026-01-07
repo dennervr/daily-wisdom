@@ -60,7 +60,8 @@ dev.db
 *.db
 *.db-journal
 
-# Prisma
+# Drizzle
+drizzle/
 
 # Documentation
 README.md

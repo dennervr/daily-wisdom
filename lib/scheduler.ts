@@ -70,6 +70,8 @@ export const generateDailyContentForDate = async (date: string, options?: { tran
         console.error(`[Content Generator] Failed to translate to ${language}:`, error);
       }
     });
+
+  // Note: after migration there is no separate translation table; translateArticle should call saveArticle to create language rows.
   await Promise.all(translationPromises);
   console.log(`[Content Generator] All translations completed for ${date}`);
 };

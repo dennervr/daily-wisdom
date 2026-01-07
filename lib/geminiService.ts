@@ -54,7 +54,6 @@ class GeminiClient {
           title,
           content: translatedText || '',
           language: targetLanguage,
-          isTranslated: true,
         };
       },
       {
