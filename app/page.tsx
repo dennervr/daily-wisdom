@@ -1,17 +1,8 @@
-import { format } from "date-fns"
-import { getArticle } from "@/lib/articleRepository"
 import Home from "@/components/home"
-import type { ArticleData } from "@/lib/types"
-import { SUPPORTED_LANGUAGES } from '@/lib/constants'
+import { useTodayArticle } from "@/hooks/use-today-article"
 
 export default async function HomePage() {
-  const today = format(new Date(), "yyyy-MM-dd")
-  let initialArticle: ArticleData | null = null
-  try {
-    initialArticle = (await getArticle(today, SUPPORTED_LANGUAGES['en'].code)) as ArticleData | null
-  } catch (error) {
-    // server side error ignored, client will show fallback
-    console.error('[Page] Failed to load initial article', error)
-  }
+  const initialArticle = useTodayArticle()
+
   return <Home initialArticle={initialArticle} />
 }
