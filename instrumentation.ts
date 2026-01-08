@@ -12,8 +12,18 @@ export async function register() {
   if (process.env.NEXT_RUNTIME === 'nodejs') {
     const { runMigrations } = await import('./lib/migrate');
     const { initializeTranslationService } = await import('./lib/translation/translationService');
+    const { validateEnvironmentVariables } = await import('./lib/validation');
     
     console.log('\n🚀 Daily Wisdom Application Starting...\n');
+    
+    // Validate environment variables first (fail fast if config is wrong)
+    try {
+      validateEnvironmentVariables();
+    } catch (error) {
+      console.error('\n❌ Application startup failed - Invalid configuration\n');
+      console.error(error);
+      process.exit(1);
+    }
     
     // Run migrations first (before any DB operations)
     await runMigrations();

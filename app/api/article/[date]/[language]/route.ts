@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getArticle } from '@/lib/articleRepository';
 import type { LanguageCode } from '@/lib/constants';
+import { isValidDateFormat, isValidLanguage } from '@/lib/validation';
 
 type Params = Promise<{
   date: string;
@@ -9,13 +10,55 @@ type Params = Promise<{
 
 export async function GET(request: NextRequest, { params }: { params: Params }) {
   const { date, language } = await params;
+  
+  // Validate date format
+  if (!isValidDateFormat(date)) {
+    return NextResponse.json(
+      { 
+        error: 'Invalid date format', 
+        message: 'Date must be in YYYY-MM-DD format (e.g., 2026-01-08)' 
+      }, 
+      { status: 400 }
+    );
+  }
+  
+  // Validate language code
+  if (!isValidLanguage(language)) {
+    return NextResponse.json(
+      { 
+        error: 'Invalid language code', 
+        message: 'Language must be one of: en, es, fr, de, pt, it, nl, ru, ja, zh, ko' 
+      }, 
+      { status: 400 }
+    );
+  }
+  
   try {
     let article = await getArticle(date, language as LanguageCode);
     if (!article) {
       const today = new Date().toISOString().slice(0, 10);
       if (date === today) {
         try {
-          const { ensureArticleForDate } = await import('@/lib/scheduler');
+          const { ensureArticleForDate, isGeneratingArticle } = await import('@/lib/scheduler');
+          
+          // Check if generation is already in progress
+          if (isGeneratingArticle(date)) {
+            return NextResponse.json(
+              { 
+                status: 'generating', 
+                message: 'Article is currently being generated. Please try again in a few moments.',
+                retry_after: 30 
+              }, 
+              { 
+                status: 202,
+                headers: { 
+                  'Cache-Control': 'no-store',
+                  'Retry-After': '30'
+                } 
+              }
+            );
+          }
+          
           await ensureArticleForDate(date);
           article = await getArticle(date, language as LanguageCode);
           if (article) {

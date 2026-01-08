@@ -79,6 +79,13 @@ export const generateDailyContentForDate = async (date: string, options?: { tran
 // Concurrency guard for generation per date
 const generationPromises = new Map<string, Promise<void>>();
 
+/**
+ * Check if an article is currently being generated for a specific date
+ */
+export function isGeneratingArticle(date: string): boolean {
+  return generationPromises.has(date);
+}
+
 export async function ensureArticleForDate(date: string, options?: { translationsOnly?: boolean, force?: boolean }) {
   if (generationPromises.has(date)) {
     console.log(`[Ensure] Waiting for existing generation for ${date}`);
