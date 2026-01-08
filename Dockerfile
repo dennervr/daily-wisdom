@@ -14,7 +14,8 @@ RUN corepack enable pnpm && pnpm build
 
 # Ensure required runtime directories exist for copying to runner stage
 # This prevents "not found" errors in Railway and other CI/CD environments
-RUN mkdir -p /app/drizzle /app/locales /app/public
+# Note: drizzle folder is not created here as it comes from source with migration files
+RUN mkdir -p /app/locales /app/public
 
 FROM node:24-alpine AS runner
 
