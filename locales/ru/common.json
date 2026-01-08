@@ -35,6 +35,10 @@
     "today": "Сегодня",
     "yesterday": "Вчера"
   },
+  "datePicker": {
+    "error": "Не удалось загрузить доступные даты",
+    "generating": "Статья на сегодня генерируется. Это может занять несколько мгновений."
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy 'г.'",

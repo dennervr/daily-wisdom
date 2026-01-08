@@ -35,6 +35,10 @@
     "today": "오늘",
     "yesterday": "어제"
   },
+  "datePicker": {
+    "error": "사용 가능한 날짜를 불러올 수 없습니다",
+    "generating": "오늘의 기사가 생성 중입니다. 잠시만 기다려주세요."
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "yyyy년 M월 d일",

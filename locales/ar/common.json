@@ -35,6 +35,10 @@
     "today": "اليوم",
     "yesterday": "أمس"
   },
+  "datePicker": {
+    "error": "تعذر تحميل التواريخ المتاحة",
+    "generating": "يتم إنشاء مقال اليوم. قد يستغرق هذا بضع لحظات."
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",

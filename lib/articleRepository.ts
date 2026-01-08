@@ -1,6 +1,6 @@
 import { db } from './db'
 import { day, articles } from './db/schema'
-import { eq, and, count as drizzleCount } from 'drizzle-orm'
+import { eq, and, count as drizzleCount, desc } from 'drizzle-orm'
 import { toArticleData, parseDateSafe } from './utils'
 import type { ArticleData } from './types'
 import { SUPPORTED_LANGUAGES, type LanguageCode } from './constants'
@@ -130,6 +130,16 @@ export const hasTranslation = async (dateStr: string, language: LanguageCode): P
     ))
   
   return (result?.count ?? 0) > 0
+}
+
+/** Get all dates that have articles available (sorted descending). */
+export const getAllAvailableDates = async (): Promise<string[]> => {
+  const results = await db
+    .select({ date: day.date })
+    .from(day)
+    .orderBy(desc(day.date))
+  
+  return results.map(r => r.date)
 }
 
 export const resetDatabase = async (): Promise<void> => {

@@ -2,11 +2,10 @@
 
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
-import { format } from "date-fns"
-import { BookOpen, Globe, Sun, Moon, Check, Heart, Calendar } from "lucide-react"
+import { BookOpen, Globe, Sun, Moon, Check, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
+import { DatePicker } from "@/components/date-picker"
 import { LanguageConfigType, SUPPORTED_LANGUAGES } from "@/lib/constants"
 import { useTranslation } from "@/lib/i18n"
 
@@ -15,12 +14,14 @@ interface NavbarProps {
   onDateChange: (date: string) => void
   language: LanguageConfigType
   onLanguageChange: (lang: LanguageConfigType) => void
+  availableDates: string[]
+  datesLoading: boolean
+  datesError: boolean
 }
 
-export function Navbar({ selectedDate, onDateChange, language, onLanguageChange }: NavbarProps) {
+export function Navbar({ selectedDate, onDateChange, language, onLanguageChange, availableDates, datesLoading, datesError }: NavbarProps) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
-  const [datePickerOpen, setDatePickerOpen] = useState(false)
   const t = useTranslation()
 
   useEffect(() => setMounted(true), [])
@@ -38,41 +39,28 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
 
         <div className="flex items-center gap-2 md:gap-4">
           {/* Date Picker - Desktop */}
-          <input
-            type="date"
-            value={selectedDate}
-            max={format(new Date(), "yyyy-MM-dd")}
-            onChange={(e) => onDateChange(e.target.value)}
-            aria-label={t('navbar.selectDate')}
-            className="hidden sm:block bg-transparent text-foreground text-sm border border-border rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-ring transition-colors"
-          />
+          <div className="hidden sm:block">
+            <DatePicker
+              selectedDate={selectedDate}
+              onDateChange={onDateChange}
+              availableDates={availableDates}
+              isLoading={datesLoading}
+              hasError={datesError}
+              isMobile={false}
+            />
+          </div>
 
           {/* Date Picker - Mobile */}
-          <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
-            <PopoverTrigger asChild>
-              <Button 
-                variant="ghost"
-                size="icon"
-                className="sm:hidden"
-                aria-label={t('navbar.selectDate')}
-              >
-                <Calendar className="w-5 h-5" />
-              </Button>
-            </PopoverTrigger>
-            <PopoverContent className="w-auto p-3" align="end">
-              <input
-                type="date"
-                value={selectedDate}
-                max={format(new Date(), "yyyy-MM-dd")}
-                onChange={(e) => {
-                  onDateChange(e.target.value)
-                  setDatePickerOpen(false)
-                }}
-                aria-label={t('navbar.selectDate')}
-                className="bg-transparent text-foreground text-sm border border-border rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-ring transition-colors"
-              />
-            </PopoverContent>
-          </Popover>
+          <div className="sm:hidden">
+            <DatePicker
+              selectedDate={selectedDate}
+              onDateChange={onDateChange}
+              availableDates={availableDates}
+              isLoading={datesLoading}
+              hasError={datesError}
+              isMobile={true}
+            />
+          </div>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>

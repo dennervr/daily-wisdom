@@ -35,6 +35,10 @@
     "today": "Oggi",
     "yesterday": "Ieri"
   },
+  "datePicker": {
+    "error": "Impossibile caricare le date disponibili",
+    "generating": "L'articolo di oggi è in fase di generazione. Potrebbero volerci alcuni istanti."
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",

@@ -35,6 +35,10 @@
     "today": "今日",
     "yesterday": "昨日"
   },
+  "datePicker": {
+    "error": "利用可能な日付を読み込めませんでした",
+    "generating": "今日の記事は生成中です。しばらくお待ちください。"
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "yyyy年M月d日",

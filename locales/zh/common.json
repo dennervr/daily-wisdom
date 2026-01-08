@@ -35,6 +35,10 @@
     "today": "今天",
     "yesterday": "昨天"
   },
+  "datePicker": {
+    "error": "无法加载可用日期",
+    "generating": "今天的文章正在生成中。这可能需要几分钟时间。"
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "yyyy年M月d日",

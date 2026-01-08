@@ -35,6 +35,10 @@
     "today": "Vandaag",
     "yesterday": "Gisteren"
   },
+  "datePicker": {
+    "error": "Kan beschikbare datums niet laden",
+    "generating": "Het artikel van vandaag wordt gegenereerd. Dit kan enkele ogenblikken duren."
+  },
   "format": {
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",
