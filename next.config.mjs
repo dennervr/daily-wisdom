@@ -7,6 +7,10 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Ensure @google/genai and its dependencies are included in standalone build
+  outputFileTracingIncludes: {
+    '/': ['./node_modules/@google/**/*'],
+  },
   // Security headers
   async headers() {
     return [

@@ -12,6 +12,10 @@ COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN corepack enable pnpm && pnpm build
 
+# Ensure required runtime directories exist for copying to runner stage
+# This prevents "not found" errors in Railway and other CI/CD environments
+RUN mkdir -p /app/drizzle /app/locales /app/public
+
 FROM node:24-alpine AS runner
 
 WORKDIR /app
@@ -21,7 +25,6 @@ ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1 PORT=3000 HOSTNAME="0.0.0.0"
 
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone .
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-COPY --from=builder --chown=nextjs:nodejs /app/node_modules/@google ./node_modules/@google
 COPY --from=builder --chown=nextjs:nodejs /app/drizzle ./drizzle
 COPY --from=builder --chown=nextjs:nodejs /app/locales ./locales
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
