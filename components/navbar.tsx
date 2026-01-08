@@ -3,9 +3,10 @@
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { format } from "date-fns"
-import { BookOpen, Globe, Sun, Moon, Check, Heart } from "lucide-react"
+import { BookOpen, Globe, Sun, Moon, Check, Heart, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { LanguageConfigType, SUPPORTED_LANGUAGES } from "@/lib/constants"
 import { useTranslation } from "@/lib/i18n"
 
@@ -19,6 +20,7 @@ interface NavbarProps {
 export function Navbar({ selectedDate, onDateChange, language, onLanguageChange }: NavbarProps) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [datePickerOpen, setDatePickerOpen] = useState(false)
   const t = useTranslation()
 
   useEffect(() => setMounted(true), [])
@@ -35,27 +37,55 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Date Picker */}
+          {/* Date Picker - Desktop */}
           <input
             type="date"
             value={selectedDate}
             max={format(new Date(), "yyyy-MM-dd")}
             onChange={(e) => onDateChange(e.target.value)}
             aria-label={t('navbar.selectDate')}
-            className="bg-transparent text-foreground text-sm border border-border rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-ring transition-colors"
+            className="hidden sm:block bg-transparent text-foreground text-sm border border-border rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-ring transition-colors"
           />
+
+          {/* Date Picker - Mobile */}
+          <Popover open={datePickerOpen} onOpenChange={setDatePickerOpen}>
+            <PopoverTrigger asChild>
+              <Button 
+                variant="ghost"
+                size="icon"
+                className="sm:hidden"
+                aria-label={t('navbar.selectDate')}
+              >
+                <Calendar className="w-5 h-5" />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-3" align="end">
+              <input
+                type="date"
+                value={selectedDate}
+                max={format(new Date(), "yyyy-MM-dd")}
+                onChange={(e) => {
+                  onDateChange(e.target.value)
+                  setDatePickerOpen(false)
+                }}
+                aria-label={t('navbar.selectDate')}
+                className="bg-transparent text-foreground text-sm border border-border rounded-md px-2 py-1 outline-none focus:ring-1 focus:ring-ring transition-colors"
+              />
+            </PopoverContent>
+          </Popover>
 
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" size="sm" className="gap-2 rounded-full text-xs bg-transparent">
-                <Globe className="w-3.5 h-3.5" />
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 rounded-full text-xs bg-transparent border-0 shadow-none sm:border sm:shadow-xs hover:bg-accent"
+              >
+                <Globe className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 w-5 h-5" />
                 {mounted ? (
-                  <>
-                    <span className="hidden sm:inline">{displayLanguage}</span>
-                    <span className="sm:hidden">{displayLanguage.substring(0, 2)}</span>
-                  </>
+                  <span className="hidden sm:inline">{displayLanguage}</span>
                 ) : (
-                  <span className="w-16 sm:w-20">&nbsp;</span>
+                  <span className="hidden sm:inline w-20">&nbsp;</span>
                 )}
               </Button>
             </DropdownMenuTrigger>
@@ -73,11 +103,11 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
           <Button
             variant="outline"
             size="sm"
-            className="gap-2"
+            className="gap-2 border-0 shadow-none sm:border sm:shadow-xs hover:bg-accent"
             onClick={() => window.open('https://github.com/sponsors/dennervr', '_blank')}
             aria-label="Sponsor on GitHub"
           >
-            <Heart className="w-3.5 h-3.5" />
+            <Heart className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 w-5 h-5" />
             <span className="hidden sm:inline">Sponsor</span>
           </Button>
 
