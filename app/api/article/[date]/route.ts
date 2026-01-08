@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getArticle } from '@/lib/articleRepository';
 import { SUPPORTED_LANGUAGES } from '@/lib/constants';
+import { isValidDateFormat } from '@/lib/validation';
 
 type Params = Promise<{
   date: string;
@@ -8,6 +9,18 @@ type Params = Promise<{
 
 export async function GET(request: NextRequest, { params }: { params: Params }) {
   const { date } = await params;
+  
+  // Validate date format
+  if (!isValidDateFormat(date)) {
+    return NextResponse.json(
+      { 
+        error: 'Invalid date format', 
+        message: 'Date must be in YYYY-MM-DD format (e.g., 2026-01-08)' 
+      }, 
+      { status: 400 }
+    );
+  }
+  
   try {
     const article = await getArticle(date, SUPPORTED_LANGUAGES['en'].code);
     if (!article) {
@@ -16,7 +29,27 @@ export async function GET(request: NextRequest, { params }: { params: Params }) 
       if (date === today) {
         try {
           // Lazy import to avoid circular deps
-          const { ensureArticleForDate } = await import('@/lib/scheduler');
+          const { ensureArticleForDate, isGeneratingArticle } = await import('@/lib/scheduler');
+          
+          // Check if generation is already in progress
+          if (isGeneratingArticle(date)) {
+            return NextResponse.json(
+              { 
+                status: 'generating', 
+                message: 'Article is currently being generated. Please try again in a few moments.',
+                retry_after: 30 
+              }, 
+              { 
+                status: 202,
+                headers: { 
+                  'Cache-Control': 'no-store',
+                  'Retry-After': '30'
+                } 
+              }
+            );
+          }
+          
+          // Start generation (async, will be caught by the in-memory lock)
           await ensureArticleForDate(date);
           const regenerated = await getArticle(date, SUPPORTED_LANGUAGES['en'].code);
           if (regenerated) {
