@@ -7,9 +7,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Ensure @google/genai and its dependencies are included in standalone build
+  // Ensure @google/genai and drizzle migrations are included in standalone build
   outputFileTracingIncludes: {
-    '/': ['./node_modules/@google/**/*'],
+    '/': [
+      './node_modules/@google/**/*',
+      './drizzle/**/*',
+    ],
   },
   // Security headers
   async headers() {
