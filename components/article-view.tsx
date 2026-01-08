@@ -98,9 +98,20 @@ export function ArticleView({ data }: ArticleViewProps) {
           <div className="mt-12 flex flex-col items-center gap-2 text-center text-xs text-muted-foreground w-full">
             <p className="opacity-80 italic max-w-md">{t('article.aiWarning')}</p>
             <p className="uppercase tracking-widest mt-4">{t('footer.title')}</p>
-            <a href={`mailto:${t('footer.contact')}`} className="hover:text-foreground transition-colors">
-              {t('footer.contact')}
-            </a>
+            <div className="flex items-center gap-4">
+              <a href={`mailto:${t('footer.contact')}`} className="hover:text-foreground transition-colors">
+                {t('footer.contact')}
+              </a>
+              <span className="text-muted-foreground/50">•</span>
+              <a 
+                href="https://github.com/dennervr/daily-wisdom" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-foreground transition-colors"
+              >
+                {t('footer.github')}
+              </a>
+            </div>
           </div>
         </CardFooter>
       </Card>
