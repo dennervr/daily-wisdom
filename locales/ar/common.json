@@ -7,7 +7,8 @@
     "title": "الحكمة اليومية",
     "selectDate": "اختر التاريخ",
     "selectLanguage": "اختر اللغة",
-    "toggleTheme": "تبديل السمة"
+    "toggleTheme": "تبديل السمة",
+    "sponsor": "دعم"
   },
   "loading": {
     "gathering": "جمع الحكمة...",

@@ -7,7 +7,8 @@
     "title": "每日智慧",
     "selectDate": "选择日期",
     "selectLanguage": "选择语言",
-    "toggleTheme": "切换主题"
+    "toggleTheme": "切换主题",
+    "sponsor": "支持"
   },
   "loading": {
     "gathering": "收集智慧中...",

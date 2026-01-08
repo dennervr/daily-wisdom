@@ -7,7 +7,8 @@
     "title": "Sabedoria Diária",
     "selectDate": "Escolher data",
     "selectLanguage": "Selecionar idioma",
-    "toggleTheme": "Alternar tema"
+    "toggleTheme": "Alternar tema",
+    "sponsor": "Apoiar"
   },
   "loading": {
     "gathering": "Reunindo sabedoria...",

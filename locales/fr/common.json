@@ -7,7 +7,8 @@
     "title": "Sagesse Quotidienne",
     "selectDate": "Choisir la date",
     "selectLanguage": "Sélectionner la langue",
-    "toggleTheme": "Changer le thème"
+    "toggleTheme": "Changer le thème",
+    "sponsor": "Soutenir"
   },
   "loading": {
     "gathering": "Collecte de sagesse...",

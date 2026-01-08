@@ -7,7 +7,8 @@
     "title": "Tägliche Weisheit",
     "selectDate": "Datum wählen",
     "selectLanguage": "Sprache auswählen",
-    "toggleTheme": "Thema wechseln"
+    "toggleTheme": "Thema wechseln",
+    "sponsor": "Unterstützen"
   },
   "loading": {
     "gathering": "Weisheit sammeln...",

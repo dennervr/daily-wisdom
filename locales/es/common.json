@@ -7,7 +7,8 @@
     "title": "Sabiduría Diaria",
     "selectDate": "Elegir fecha",
     "selectLanguage": "Seleccionar idioma",
-    "toggleTheme": "Cambiar tema"
+    "toggleTheme": "Cambiar tema",
+    "sponsor": "Apoyar"
   },
   "loading": {
     "gathering": "Recopilando sabiduría...",

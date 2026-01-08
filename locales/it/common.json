@@ -7,7 +7,8 @@
     "title": "Saggezza Quotidiana",
     "selectDate": "Scegli data",
     "selectLanguage": "Seleziona lingua",
-    "toggleTheme": "Cambia tema"
+    "toggleTheme": "Cambia tema",
+    "sponsor": "Supporta"
   },
   "loading": {
     "gathering": "Raccolta di saggezza...",

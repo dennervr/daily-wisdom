@@ -7,7 +7,8 @@
     "title": "Dagelijkse Wijsheid",
     "selectDate": "Kies datum",
     "selectLanguage": "Selecteer taal",
-    "toggleTheme": "Wissel thema"
+    "toggleTheme": "Wissel thema",
+    "sponsor": "Ondersteunen"
   },
   "loading": {
     "gathering": "Wijsheid verzamelen...",

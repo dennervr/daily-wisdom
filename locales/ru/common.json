@@ -7,7 +7,8 @@
     "title": "Ежедневная Мудрость",
     "selectDate": "Выбрать дату",
     "selectLanguage": "Выбрать язык",
-    "toggleTheme": "Сменить тему"
+    "toggleTheme": "Сменить тему",
+    "sponsor": "Поддержать"
   },
   "loading": {
     "gathering": "Собираем мудрость...",
