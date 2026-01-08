@@ -1,4 +1,4 @@
-CREATE TABLE "articles" (
+CREATE TABLE IF NOT EXISTS "articles" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"dayId" integer NOT NULL,
 	"language" text NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE "articles" (
 	CONSTRAINT "articles_dayId_language_unique" UNIQUE("dayId","language")
 );
 --> statement-breakpoint
-CREATE TABLE "day" (
+CREATE TABLE IF NOT EXISTS "day" (
 	"id" serial PRIMARY KEY NOT NULL,
 	"date" text NOT NULL,
 	"year" integer NOT NULL,
@@ -19,4 +19,8 @@ CREATE TABLE "day" (
 	CONSTRAINT "day_date_unique" UNIQUE("date")
 );
 --> statement-breakpoint
-ALTER TABLE "articles" ADD CONSTRAINT "articles_dayId_day_id_fk" FOREIGN KEY ("dayId") REFERENCES "public"."day"("id") ON DELETE cascade ON UPDATE no action;
+DO $$ BEGIN
+ ALTER TABLE "articles" ADD CONSTRAINT "articles_dayId_day_id_fk" FOREIGN KEY ("dayId") REFERENCES "public"."day"("id") ON DELETE cascade ON UPDATE no action;
+EXCEPTION
+ WHEN duplicate_object THEN null;
+END $$;
