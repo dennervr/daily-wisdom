@@ -41,6 +41,7 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# Drizzle
-/drizzle
+# Drizzle - ignore only database files, keep migrations
+*.db
+*.db-journal
 session-ses_*.md
