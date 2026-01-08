@@ -76,7 +76,7 @@ export function ArticleView({ data }: ArticleViewProps) {
           </div>
 
           {data.sources.length > 0 ? (
-            <ul className="space-y-3 w-full">
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 w-full">
               {data.sources.map((source, idx) => (
                 <li key={idx} className="text-sm">
                   <a
