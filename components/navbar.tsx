@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
 import { format } from "date-fns"
-import { BookOpen, Globe, Sun, Moon, Check } from "lucide-react"
+import { BookOpen, Globe, Sun, Moon, Check, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { LanguageConfigType, SUPPORTED_LANGUAGES } from "@/lib/constants"
@@ -68,6 +68,18 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange 
               ))}
             </DropdownMenuContent>
           </DropdownMenu>
+
+          {/* GitHub Sponsors Button */}
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2"
+            onClick={() => window.open('https://github.com/sponsors/dennervr', '_blank')}
+            aria-label="Sponsor on GitHub"
+          >
+            <Heart className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Sponsor</span>
+          </Button>
 
           {/* Theme Toggle */}
           {mounted && (

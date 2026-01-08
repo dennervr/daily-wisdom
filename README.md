@@ -1,5 +1,7 @@
 # Daily Wisdom
 
+[![Sponsor](https://img.shields.io/badge/sponsor-dennervr-EA4AAA?logo=github-sponsors&style=flat-square)](https://github.com/sponsors/dennervr)
+
 A minimalist publication delivering daily wisdom through AI-generated articles on Philosophy, Science, and History.
 
 ## Features
@@ -228,6 +230,14 @@ docker compose down
 # Stop and remove all data
 docker compose down -v
 ```
+
+## Support
+
+If you find this project helpful, consider supporting its development:
+
+<iframe src="https://github.com/sponsors/dennervr/button" title="Sponsor dennervr" height="32" width="114" style="border: 0; border-radius: 6px;"></iframe>
+
+Or visit [GitHub Sponsors](https://github.com/sponsors/dennervr) to learn more.
 
 
 ## License
