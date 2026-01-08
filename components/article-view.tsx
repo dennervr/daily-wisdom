@@ -17,7 +17,7 @@ export function ArticleView({ data }: ArticleViewProps) {
   const t = useTranslation()
   
   return (
-    <article className="max-w-3xl mx-auto py-12 md:py-20 animate-in fade-in-0 duration-500">
+    <article className="max-w-3xl mx-auto animate-in fade-in-0 duration-500">
       <Card className="border-none shadow-none bg-transparent">
         <CardHeader className="text-center pb-8">
           <p className="text-muted-foreground text-sm uppercase tracking-widest mb-2 font-medium">{data.date}</p>
