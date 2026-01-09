@@ -4,7 +4,7 @@
 
 A minimalist publication delivering daily wisdom through AI-generated articles on Philosophy, Science, and History.
 
-The purpose of this application is to provide quick and useful content on a daily basis that contributes to personal development in a distraction-free environment without advertisements. 
+In a world overflowing with information, Daily Wisdom offers a moment of clarity. Each day, we deliver an article exploring timeless topics in philosophy, science, and history. Our goal is to provide accessible, thought-provoking content that enriches your understanding of the world and inspires deeper reflection—all in a distraction-free environment without advertisements. 
 
 ## Features
 
@@ -48,22 +48,35 @@ npm run generate
 | `--help` | `-h` | Display help information | - |
 
 
-## Translation Configuration
+## Multi-Language Support
+
+Daily Wisdom is available in **12 languages**, making wisdom accessible to readers around the globe:
+
+🇺🇸 English | 🇪🇸 Spanish | 🇫🇷 French | 🇩🇪 German | 🇧🇷 Portuguese | 🇮🇹 Italian  
+🇳🇱 Dutch | 🇷🇺 Russian | 🇯🇵 Japanese | 🇨🇳 Chinese | 🇰🇷 Korean | 🇸🇦 Arabic
+
+### Translation System
 
 The application uses a hybrid translation approach:
 
-### Primary: DeepL Translation
+**Primary: DeepL Translation**
 - High-quality translations when DeepL API key is configured
-- Supports 11 languages: English, Spanish, French, German, Portuguese, Italian, Dutch, Russian, Japanese, Chinese, and Korean
 - Automatic retry logic with exponential backoff
 
-### Fallback: Gemini Translation
+**Fallback: Gemini Translation**
 - When DeepL is unavailable or fails, the system automatically falls back to Gemini
 - Ensures continuous service even if the primary translator is down
+- Configured via `GEMINI_API_KEY` environment variable
 
 ## Internationalization (i18n)
 
-The application includes a comprehensive i18n/l10n system supporting 11 languages with locale-aware formatting and automatic fallback. For complete documentation, usage examples, and implementation details, see [docs/i18n-guide.md](docs/i18n-guide.md).
+The application includes a comprehensive i18n/l10n system with:
+- **12 supported languages** (see Multi-Language Support section above)
+- **Locale-aware formatting** for dates, numbers, and text
+- **Automatic fallback** to English if translation is unavailable
+- **RTL support** for Arabic
+
+For complete documentation, usage examples, and implementation details, see [docs/i18n-guide.md](docs/i18n-guide.md).
 
 ## Getting Started
 
