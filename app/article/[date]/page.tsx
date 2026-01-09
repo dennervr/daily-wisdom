@@ -12,12 +12,25 @@ type Props = {
 }
 
 // Generate static params for all available articles
+// Try to pre-generate pages at build time, but don't fail if DB is unavailable
 export async function generateStaticParams() {
-  const dates = await getAllAvailableDates()
-  return dates.map((date) => ({
-    date: date,
-  }))
+  try {
+    const dates = await getAllAvailableDates()
+    return dates.map((date) => ({
+      date: date,
+    }))
+  } catch (error) {
+    // Database may not be available during build (e.g., Railway CI/CD)
+    // Return empty array - pages will be generated on-demand at runtime
+    console.warn('⚠️  Could not fetch article dates during build (this is expected in CI/CD)')
+    console.warn('✓  Article pages will be generated on-demand with ISR')
+    return []
+  }
 }
+
+// Allow dynamic params - enables ISR for paths not generated at build time
+// This ensures SEO is maintained: bots get full HTML on first request
+export const dynamicParams = true
 
 // Generate metadata for SEO
 export async function generateMetadata({ params, searchParams }: Props): Promise<Metadata> {
