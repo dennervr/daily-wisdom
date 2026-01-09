@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",
     "dateFull": "EEEE d MMMM yyyy"
+  },
+  "about": {
+    "title": "Over Dagelijkse Wijsheid",
+    "subtitle": "Een minimalistische publicatie die dagelijks wijsheid levert door AI-gegenereerde artikelen over Filosofie, Wetenschap en Geschiedenis.",
+    "backButton": "Terug naar Dagelijkse Wijsheid",
+    "mission": {
+      "title": "Onze Missie",
+      "content": "In een wereld die overloopt van informatie, biedt Dagelijkse Wijsheid een moment van helderheid. Elke dag leveren we een artikel dat tijdloze onderwerpen uit filosofie, wetenschap en geschiedenis verkent. Ons doel is toegankelijke, tot nadenken stemmende inhoud te bieden die uw begrip van de wereld verrijkt en tot diepere reflectie inspireert."
+    },
+    "howItWorks": {
+      "title": "Hoe Het Werkt",
+      "intro": "Dagelijkse Wijsheid maakt gebruik van geavanceerde kunstmatige intelligentie om elke dag frisse, inzichtelijke inhoud te genereren:",
+      "aiGeneration": "AI-Aangedreven Generatie:",
+      "aiGenerationDesc": "Artikelen worden gemaakt met behulp van Google's Gemini AI, die onderwerpen onderzoekt en informatie uit meerdere bronnen synthetiseert.",
+      "sourceCitations": "Broncitaten:",
+      "sourceCitationsDesc": "Elk artikel bevat verwijzingen naar geloofwaardige bronnen, gebaseerd op echte informatie van Google Search.",
+      "availability": "Beschikbaarheid:",
+      "availabilityDesc": "Inhoud wordt automatisch gegenereerd om middernacht UTC, zodat verse wijsheid klaar is wanneer u uw dag begint."
+    },
+    "worldwide": {
+      "title": "Wereldwijd Beschikbaar",
+      "content": "Dagelijkse Wijsheid is beschikbaar in <strong>12 talen</strong>, waardoor wijsheid toegankelijk is voor lezers over de hele wereld. Ons hybride vertaalsysteem combineert hoogwaardige DeepL-vertalingen met AI-aangedreven fallback om ervoor te zorgen dat inhoud beschikbaar is in:"
+    },
+    "technology": {
+      "title": "Gebouwd met Moderne Technologie",
+      "content": "Dagelijkse Wijsheid is gebouwd met geavanceerde webtechnologieën om een snelle, betrouwbare en mooie leeservaring te garanderen:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "React-framework voor productie",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Type-veilige ontwikkeling",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Betrouwbare gegevensopslag",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Mooi, responsief ontwerp",
+      "docker": "Docker",
+      "dockerDesc": "Gecontaineriseerde implementatie"
+    },
+    "futurePlans": {
+      "title": "Toekomstplannen",
+      "intro": "We werken voortdurend aan het verbeteren van Dagelijkse Wijsheid en het toevoegen van nieuwe functies om uw leeservaring te verbeteren. Dit is wat we plannen:",
+      "articleSearch": "Artikellijst & Zoeken:",
+      "articleSearchDesc": "Blader door het archief van eerdere artikelen met krachtige zoekfunctionaliteit om specifieke onderwerpen of thema's te vinden die u interesseren.",
+      "categories": "Inhoudscategorieën:",
+      "categoriesDesc": "Organiseer artikelen in categorieën zoals humor, snelle passages, diepgaande analyses en meer, waardoor het gemakkelijker wordt om inhoud te vinden die bij uw stemming past.",
+      "userAccounts": "Gebruikersaccounts:",
+      "userAccountsDesc": "Maak een persoonlijk account aan om uw favoriete artikelen op te slaan, privénotities toe te voegen en uw leesgeschiedenis bij te houden.",
+      "inDepthAnalysis": "Diepgaande Analyse:",
+      "inDepthAnalysisDesc": "Selecteer een willekeurige passage uit een artikel om gedetailleerde uitleg, historische context of diepere filosofische analyse te ontvangen.",
+      "suggestions": "Heeft u ideeën voor andere functies? We horen graag uw suggesties!"
+    },
+    "aiDisclaimer": {
+      "title": "Belangrijk:",
+      "content": "Alle artikelen op Dagelijkse Wijsheid worden gegenereerd door kunstmatige intelligentie. Hoewel we streven naar nauwkeurigheid en geloofwaardige bronnen citeren, kan door AI gegenereerde inhoud fouten of onnauwkeurigheden bevatten. Verifieer belangrijke informatie altijd uit primaire bronnen."
+    },
+    "openSource": {
+      "title": "Open Source & Ondersteuning",
+      "content": "Dagelijkse Wijsheid is een open source-project, gebouwd met passie en vrij gedeeld met de gemeenschap. De volledige codebase is beschikbaar op GitHub onder de MIT-licentie.",
+      "github": "Bekijk op GitHub",
+      "sponsor": "Sponsor dit Project",
+      "supportText": "Als u Dagelijkse Wijsheid waardevol vindt, overweeg dan om de ontwikkeling ervan te ondersteunen. Uw sponsoring helpt het project levend te houden en maakt voortdurende verbeteringen mogelijk."
+    },
+    "contact": {
+      "title": "Neem Contact Op",
+      "content": "Heeft u vragen, suggesties of feedback? Ik hoor graag van u.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Met zorg gemaakt door",
+      "license": "© 2026 Dagelijkse Wijsheid. Uitgebracht onder MIT-licentie."
+    }
   }
 }

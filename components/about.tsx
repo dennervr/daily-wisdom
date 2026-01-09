@@ -5,8 +5,11 @@ import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import { AboutNavbar } from "@/components/about-navbar"
+import { useTranslation } from "@/lib/i18n"
 
 export default function About() {
+  const t = useTranslation()
+
   return (
     <div className="min-h-screen flex flex-col bg-background">
       <AboutNavbar />
@@ -18,10 +21,10 @@ export default function About() {
             <BookOpen className="w-16 h-16 text-primary" />
           </div>
           <h1 className="font-serif font-bold text-4xl md:text-5xl tracking-tight">
-            About Daily Wisdom
+            {t('about.title')}
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            A minimalist publication delivering daily wisdom through AI-generated articles on Philosophy, Science, and History.
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -31,13 +34,10 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Sparkles className="w-5 h-5 text-primary" />
-            <h2 className="font-serif font-bold text-2xl">Our Mission</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.mission.title')}</h2>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            In a world overflowing with information, Daily Wisdom offers a moment of clarity. 
-            Each day, we deliver a article exploring timeless topics in philosophy, 
-            science, and history. Our goal is to provide accessible, thought-provoking content that 
-            enriches your understanding of the world and inspires deeper reflection.
+            {t('about.mission.content')}
           </p>
         </section>
 
@@ -47,24 +47,21 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Code className="w-5 h-5 text-primary" />
-            <h2 className="font-serif font-bold text-2xl">How It Works</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.howItWorks.title')}</h2>
           </div>
           <div className="space-y-4 text-muted-foreground leading-relaxed">
             <p>
-              Daily Wisdom uses advanced artificial intelligence to generate fresh, insightful content every day:
+              {t('about.howItWorks.intro')}
             </p>
             <ul className="space-y-2 list-disc list-inside ml-4">
               <li>
-                <strong>AI-Powered Generation:</strong> Articles are created using Google's Gemini AI, 
-                which researches topics and synthesizes information from multiple sources.
+                <strong>{t('about.howItWorks.aiGeneration')}</strong> {t('about.howItWorks.aiGenerationDesc')}
               </li>
               <li>
-                <strong>Source Citations:</strong> Every article includes references to credible sources, 
-                grounded in real information from Google Search.
+                <strong>{t('about.howItWorks.sourceCitations')}</strong> {t('about.howItWorks.sourceCitationsDesc')}
               </li>
               <li>
-                <strong>Availability:</strong> Content is automatically generated at midnight UTC, 
-                ensuring fresh wisdom is ready when you start your day.
+                <strong>{t('about.howItWorks.availability')}</strong> {t('about.howItWorks.availabilityDesc')}
               </li>
             </ul>
           </div>
@@ -76,13 +73,9 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Globe className="w-5 h-5 text-primary" />
-            <h2 className="font-serif font-bold text-2xl">Available Worldwide</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.worldwide.title')}</h2>
           </div>
-          <p className="text-muted-foreground leading-relaxed">
-            Daily Wisdom is available in <strong>12 languages</strong>, making wisdom accessible to 
-            readers around the globe. Our hybrid translation system combines DeepL's high-quality 
-            translations with AI-powered fallback to ensure content is available in:
-          </p>
+          <p className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: t('about.worldwide.content') }} />
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3 text-sm text-muted-foreground">
             <div>🇺🇸 English</div>
             <div>🇪🇸 Spanish</div>
@@ -103,17 +96,16 @@ export default function About() {
 
         {/* Technology Section */}
         <section className="space-y-4">
-          <h2 className="font-serif font-bold text-2xl">Built with Modern Technology</h2>
+          <h2 className="font-serif font-bold text-2xl">{t('about.technology.title')}</h2>
           <p className="text-muted-foreground leading-relaxed">
-            Daily Wisdom is built with cutting-edge web technologies to ensure a fast, 
-            reliable, and beautiful reading experience:
+            {t('about.technology.content')}
           </p>
           <ul className="space-y-2 text-sm text-muted-foreground list-disc list-inside ml-4">
-            <li><strong>Next.js</strong> - React framework for production</li>
-            <li><strong>TypeScript</strong> - Type-safe development</li>
-            <li><strong>PostgreSQL</strong> - Reliable data storage</li>
-            <li><strong>Tailwind CSS</strong> - Beautiful, responsive design</li>
-            <li><strong>Docker</strong> - Containerized deployment</li>
+            <li><strong>{t('about.technology.nextjs')}</strong> - {t('about.technology.nextjsDesc')}</li>
+            <li><strong>{t('about.technology.typescript')}</strong> - {t('about.technology.typescriptDesc')}</li>
+            <li><strong>{t('about.technology.postgresql')}</strong> - {t('about.technology.postgresqlDesc')}</li>
+            <li><strong>{t('about.technology.tailwind')}</strong> - {t('about.technology.tailwindDesc')}</li>
+            <li><strong>{t('about.technology.docker')}</strong> - {t('about.technology.dockerDesc')}</li>
           </ul>
         </section>
 
@@ -123,39 +115,39 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Lightbulb className="w-5 h-5 text-primary" />
-            <h2 className="font-serif font-bold text-2xl">Future Plans</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.futurePlans.title')}</h2>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            We're constantly working to improve Daily Wisdom and add new features to enhance your reading experience. Here's what we're planning:
+            {t('about.futurePlans.intro')}
           </p>
           <ul className="space-y-3 text-muted-foreground">
             <li className="flex gap-3">
               <span className="text-primary mt-1">•</span>
               <div>
-                <strong>Article Listing & Search:</strong> Browse through the archive of past articles with powerful search functionality to find specific topics or themes that interest you.
+                <strong>{t('about.futurePlans.articleSearch')}</strong> {t('about.futurePlans.articleSearchDesc')}
               </div>
             </li>
             <li className="flex gap-3">
               <span className="text-primary mt-1">•</span>
               <div>
-                <strong>Content Categories:</strong> Organize articles into categories like humor, quick passages, deep dives, and more, making it easier to find content that matches your mood.
+                <strong>{t('about.futurePlans.categories')}</strong> {t('about.futurePlans.categoriesDesc')}
               </div>
             </li>
             <li className="flex gap-3">
               <span className="text-primary mt-1">•</span>
               <div>
-                <strong>User Accounts:</strong> Create a personal account to save your favorite articles, add private notes, and track your reading history.
+                <strong>{t('about.futurePlans.userAccounts')}</strong> {t('about.futurePlans.userAccountsDesc')}
               </div>
             </li>
             <li className="flex gap-3">
               <span className="text-primary mt-1">•</span>
               <div>
-                <strong>In-Depth Analysis:</strong> Select any passage from an article to receive detailed explanations, historical context, or deeper philosophical analysis.
+                <strong>{t('about.futurePlans.inDepthAnalysis')}</strong> {t('about.futurePlans.inDepthAnalysisDesc')}
               </div>
             </li>
           </ul>
           <p className="text-sm text-muted-foreground italic">
-            Have ideas for other features? We'd love to hear your suggestions!
+            {t('about.futurePlans.suggestions')}
           </p>
         </section>
 
@@ -164,9 +156,7 @@ export default function About() {
         {/* AI Disclaimer */}
         <Alert>
           <AlertDescription className="text-sm">
-            <strong>Important:</strong> All articles on Daily Wisdom are generated by artificial intelligence. 
-            While we strive for accuracy and cite credible sources, AI-generated content may contain errors 
-            or inaccuracies. Always verify important information from primary sources.
+            <strong>{t('about.aiDisclaimer.title')}</strong> {t('about.aiDisclaimer.content')}
           </AlertDescription>
         </Alert>
 
@@ -176,11 +166,10 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Heart className="w-5 h-5 text-red-500" />
-            <h2 className="font-serif font-bold text-2xl">Open Source & Support</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.openSource.title')}</h2>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Daily Wisdom is an open-source project, built with passion and shared freely with the community. 
-            The entire codebase is available on GitHub under the MIT License.
+            {t('about.openSource.content')}
           </p>
           <div className="flex flex-wrap gap-3">
             <Button
@@ -188,19 +177,18 @@ export default function About() {
               onClick={() => window.open('https://github.com/dennervr/daily-wisdom', '_blank')}
             >
               <Code className="w-4 h-4 mr-2" />
-              View on GitHub
+              {t('about.openSource.github')}
             </Button>
             <Button
               variant="default"
               onClick={() => window.open('https://buy.stripe.com/00w3cxdx5ekPdsC1Pk6oo00', '_blank')}
             >
               <Heart className="w-4 h-4 mr-2 text-red-500" />
-              Sponsor this Project
+              {t('about.openSource.sponsor')}
             </Button>
           </div>
           <p className="text-sm text-muted-foreground">
-            If you find Daily Wisdom valuable, consider supporting its development. Your sponsorship 
-            helps keep the project alive and enables continued improvements.
+            {t('about.openSource.supportText')}
           </p>
         </section>
 
@@ -210,24 +198,24 @@ export default function About() {
         <section className="space-y-4">
           <div className="flex items-center gap-2">
             <Mail className="w-5 h-5 text-primary" />
-            <h2 className="font-serif font-bold text-2xl">Get in Touch</h2>
+            <h2 className="font-serif font-bold text-2xl">{t('about.contact.title')}</h2>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Have questions, suggestions, or feedback? I'd love to hear from you.
+            {t('about.contact.content')}
           </p>
           <Button
             variant="outline"
-            onClick={() => window.location.href = 'mailto:dennervrp@gmail.com'}
+            onClick={() => window.location.href = `mailto:${t('about.contact.email')}`}
           >
             <Mail className="w-4 h-4 mr-2" />
-            dennervrp@gmail.com
+            {t('about.contact.email')}
           </Button>
         </section>
 
         {/* Footer */}
         <div className="pt-8 text-center text-sm text-muted-foreground">
-          <p>Made with care by <a href="https://github.com/dennervr" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Denner</a></p>
-          <p className="mt-2">© 2026 Daily Wisdom. Released under MIT License.</p>
+          <p>{t('about.footer.madeBy')} <a href="https://github.com/dennervr" target="_blank" rel="noopener noreferrer" className="underline hover:text-foreground">Denner</a></p>
+          <p className="mt-2">{t('about.footer.license')}</p>
         </div>
       </div>
     </div>

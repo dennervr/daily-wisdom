@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",
     "dateFull": "EEEE d MMMM yyyy"
+  },
+  "about": {
+    "title": "Informazioni su Saggezza Quotidiana",
+    "subtitle": "Una pubblicazione minimalista che offre saggezza quotidiana attraverso articoli generati dall'IA su Filosofia, Scienza e Storia.",
+    "backButton": "Torna a Saggezza Quotidiana",
+    "mission": {
+      "title": "La Nostra Missione",
+      "content": "In un mondo traboccante di informazioni, Saggezza Quotidiana offre un momento di chiarezza. Ogni giorno, forniamo un articolo che esplora argomenti senza tempo di filosofia, scienza e storia. Il nostro obiettivo è fornire contenuti accessibili e stimolanti che arricchiscano la tua comprensione del mondo e ispirino una riflessione più profonda."
+    },
+    "howItWorks": {
+      "title": "Come Funziona",
+      "intro": "Saggezza Quotidiana utilizza l'intelligenza artificiale avanzata per generare contenuti freschi e perspicaci ogni giorno:",
+      "aiGeneration": "Generazione Alimentata dall'IA:",
+      "aiGenerationDesc": "Gli articoli sono creati utilizzando Gemini AI di Google, che ricerca argomenti e sintetizza informazioni da fonti multiple.",
+      "sourceCitations": "Citazioni delle Fonti:",
+      "sourceCitationsDesc": "Ogni articolo include riferimenti a fonti credibili, basate su informazioni reali da Google Search.",
+      "availability": "Disponibilità:",
+      "availabilityDesc": "I contenuti vengono generati automaticamente a mezzanotte UTC, assicurando che la saggezza fresca sia pronta quando inizi la tua giornata."
+    },
+    "worldwide": {
+      "title": "Disponibile in Tutto il Mondo",
+      "content": "Saggezza Quotidiana è disponibile in <strong>12 lingue</strong>, rendendo la saggezza accessibile ai lettori di tutto il mondo. Il nostro sistema di traduzione ibrido combina traduzioni di alta qualità di DeepL con supporto alimentato dall'IA per garantire che i contenuti siano disponibili in:"
+    },
+    "technology": {
+      "title": "Costruito con Tecnologia Moderna",
+      "content": "Saggezza Quotidiana è costruita con tecnologie web all'avanguardia per garantire un'esperienza di lettura veloce, affidabile e bella:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "Framework React per la produzione",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Sviluppo con sicurezza dei tipi",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Archiviazione dati affidabile",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Design bello e reattivo",
+      "docker": "Docker",
+      "dockerDesc": "Distribuzione containerizzata"
+    },
+    "futurePlans": {
+      "title": "Piani Futuri",
+      "intro": "Stiamo costantemente lavorando per migliorare Saggezza Quotidiana e aggiungere nuove funzionalità per migliorare la tua esperienza di lettura. Ecco cosa stiamo pianificando:",
+      "articleSearch": "Elenco e Ricerca Articoli:",
+      "articleSearchDesc": "Naviga nell'archivio degli articoli passati con potente funzionalità di ricerca per trovare argomenti o temi specifici che ti interessano.",
+      "categories": "Categorie di Contenuti:",
+      "categoriesDesc": "Organizza gli articoli in categorie come umorismo, passaggi rapidi, analisi approfondite e altro ancora, rendendo più facile trovare contenuti che corrispondono al tuo umore.",
+      "userAccounts": "Account Utente:",
+      "userAccountsDesc": "Crea un account personale per salvare i tuoi articoli preferiti, aggiungere note private e tracciare la tua cronologia di lettura.",
+      "inDepthAnalysis": "Analisi Approfondita:",
+      "inDepthAnalysisDesc": "Seleziona qualsiasi passaggio da un articolo per ricevere spiegazioni dettagliate, contesto storico o analisi filosofica più profonda.",
+      "suggestions": "Hai idee per altre funzionalità? Ci piacerebbe sentire i tuoi suggerimenti!"
+    },
+    "aiDisclaimer": {
+      "title": "Importante:",
+      "content": "Tutti gli articoli su Saggezza Quotidiana sono generati dall'intelligenza artificiale. Sebbene ci sforziamo per l'accuratezza e citiamo fonti credibili, i contenuti generati dall'IA possono contenere errori o inesattezze. Verifica sempre le informazioni importanti da fonti primarie."
+    },
+    "openSource": {
+      "title": "Open Source e Supporto",
+      "content": "Saggezza Quotidiana è un progetto open source, costruito con passione e condiviso liberamente con la comunità. L'intero codice è disponibile su GitHub sotto licenza MIT.",
+      "github": "Vedi su GitHub",
+      "sponsor": "Sponsorizza questo Progetto",
+      "supportText": "Se trovi Saggezza Quotidiana prezioso, considera di supportare il suo sviluppo. Il tuo sostegno aiuta a mantenere il progetto vivo e consente miglioramenti continui."
+    },
+    "contact": {
+      "title": "Mettiti in Contatto",
+      "content": "Hai domande, suggerimenti o feedback? Mi piacerebbe sentire da te.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Fatto con cura da",
+      "license": "© 2026 Saggezza Quotidiana. Rilasciato sotto licenza MIT."
+    }
   }
 }

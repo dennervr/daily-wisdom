@@ -7,12 +7,13 @@ import { BookOpen, Globe, Sun, Moon, Check, Heart, ArrowLeft } from "lucide-reac
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { LanguageConfigType, SUPPORTED_LANGUAGES } from "@/lib/constants"
-import { useLocale } from "@/lib/i18n"
+import { useLocale, useTranslation } from "@/lib/i18n"
 
 export function AboutNavbar() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
   const { locale, setLocale, languageConfig } = useLocale()
+  const t = useTranslation()
 
   useEffect(() => setMounted(true), [])
 
@@ -28,13 +29,15 @@ export function AboutNavbar() {
         {/* Left: Back button */}
         <Link href="/" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
           <ArrowLeft className="w-4 h-4" />
-          <span className="hidden sm:inline text-sm font-medium">Back to Daily Wisdom</span>
+          <span className="hidden sm:inline text-sm font-medium">{t('about.backButton')}</span>
         </Link>
 
         {/* Center: Title */}
         <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-2">
           <BookOpen className="w-5 h-5 text-foreground" />
-          <span className="font-serif font-bold text-lg tracking-tight text-foreground hidden sm:inline">About</span>
+          <span className="font-serif font-bold text-lg tracking-tight text-foreground hidden sm:inline">
+            {t('navbar.title')}
+          </span>
         </div>
 
         {/* Right: Controls */}
