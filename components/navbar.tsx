@@ -92,7 +92,7 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange,
             variant="outline"
             size="sm"
             className="gap-2 border-0 shadow-none sm:border sm:shadow-xs hover:bg-accent"
-            onClick={() => window.open('https://github.com/sponsors/dennervr', '_blank')}
+            onClick={() => window.open('https://buy.stripe.com/00w3cxdx5ekPdsC1Pk6oo00', '_blank')}
             aria-label={t('navbar.sponsor')}
           >
             <Heart className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 w-5 h-5 text-red-500" />
