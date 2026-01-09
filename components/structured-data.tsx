@@ -1,7 +1,7 @@
 import type { ArticleData } from '@/lib/types'
 
 export function generateArticleStructuredData(article: ArticleData, url: string) {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   
   return {
     '@context': 'https://schema.org',
@@ -40,7 +40,7 @@ export function generateArticleStructuredData(article: ArticleData, url: string)
 }
 
 export function generateOrganizationStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   
   return {
     '@context': 'https://schema.org',
@@ -56,7 +56,7 @@ export function generateOrganizationStructuredData() {
 }
 
 export function generateWebSiteStructuredData() {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   
   return {
     '@context': 'https://schema.org',

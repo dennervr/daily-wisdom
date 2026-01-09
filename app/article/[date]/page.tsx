@@ -55,7 +55,7 @@ export async function generateMetadata({ params, searchParams }: Props): Promise
     }
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   const canonicalUrl = `${baseUrl}/article/${date}`
   
   // Create hreflang alternates
@@ -117,7 +117,7 @@ export default async function ArticlePage({ params, searchParams }: Props) {
     notFound()
   }
 
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   const articleUrl = `${baseUrl}/article/${date}`
   const structuredData = generateArticleStructuredData(article, articleUrl)
 

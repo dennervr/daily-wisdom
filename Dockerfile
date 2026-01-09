@@ -8,6 +8,10 @@ RUN corepack enable pnpm && pnpm install --frozen-lockfile
 FROM deps AS builder
 
 WORKDIR /app
+
+ARG NEXT_PUBLIC_BASE_URL
+ENV NEXT_PUBLIC_BASE_URL=$NEXT_PUBLIC_BASE_URL
+
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN corepack enable pnpm && pnpm build

@@ -10,7 +10,7 @@ const crimsonPro = Crimson_Pro({ subsets: ["latin"], variable: "--font-serif" })
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'),
   title: {
     default: "Daily Wisdom - Daily Articles on Philosophy, Science, and History",
     template: "%s | Daily Wisdom"

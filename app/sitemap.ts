@@ -2,8 +2,11 @@ import { MetadataRoute } from 'next'
 import { getAllAvailableDates } from '@/lib/articleRepository'
 import { SUPPORTED_LANGUAGES } from '@/lib/constants'
 
+// ISR: Cache sitemap for 12 hours to prevent flooding
+export const revalidate = 43200
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
   
   // Static pages (always available)
   const staticPages: MetadataRoute.Sitemap = [
@@ -26,10 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     dates = await getAllAvailableDates()
   } catch (error) {
-    // Database may not be available during build (e.g., Railway CI/CD)
-    // Return static pages only - sitemap will work fully at runtime
-    console.warn('⚠️  Could not fetch article dates during build (this is expected in CI/CD)')
-    console.warn('✓  Sitemap will include article pages at runtime')
+    console.error('❌ Sitemap error:', error)
+    console.warn('⚠️  Returning static pages only')
     return staticPages
   }
   

@@ -1,7 +1,7 @@
 import About from "@/components/about"
 import type { Metadata } from "next"
 
-const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://dailywisdom.app'
+const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://wisdom.denner.app.br'
 
 export const metadata: Metadata = {
   title: "About",
