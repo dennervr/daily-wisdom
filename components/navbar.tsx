@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { useTheme } from "next-themes"
-import { BookOpen, Globe, Sun, Moon, Check, Heart } from "lucide-react"
+import Link from "next/link"
+import { BookOpen, Globe, Sun, Moon, Check, Heart, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { DatePicker } from "@/components/date-picker"
@@ -33,8 +34,20 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange,
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <BookOpen className="w-6 h-6 text-foreground hidden md:block" />
-          <span className="font-serif font-bold text-lg tracking-tight text-foreground">{t('navbar.title')}</span>
+          <Link href="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
+            <BookOpen className="w-6 h-6 text-foreground hidden md:block" />
+            <span className="font-serif font-bold text-lg tracking-tight text-foreground">{t('navbar.title')}</span>
+          </Link>
+          <Link href="/about">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="flex gap-2 text-foreground hover:bg-accent"
+            >
+              <Info className="w-4 h-4" />
+              <span className="hidden sm:inline">About</span>
+            </Button>
+          </Link>
         </div>
 
         <div className="flex items-center gap-2 md:gap-4">
