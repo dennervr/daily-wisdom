@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d 'de' MMMM 'de' yyyy",
     "dateFull": "EEEE, d 'de' MMMM 'de' yyyy"
+  },
+  "about": {
+    "title": "Acerca de Sabiduría Diaria",
+    "subtitle": "Una publicación minimalista que ofrece sabiduría diaria a través de artículos generados por IA sobre Filosofía, Ciencia e Historia.",
+    "backButton": "Volver a Sabiduría Diaria",
+    "mission": {
+      "title": "Nuestra Misión",
+      "content": "En un mundo desbordante de información, Sabiduría Diaria ofrece un momento de claridad. Cada día, entregamos un artículo explorando temas atemporales de filosofía, ciencia e historia. Nuestro objetivo es proporcionar contenido accesible y estimulante que enriquezca tu comprensión del mundo e inspire una reflexión más profunda."
+    },
+    "howItWorks": {
+      "title": "Cómo Funciona",
+      "intro": "Sabiduría Diaria utiliza inteligencia artificial avanzada para generar contenido fresco y perspicaz cada día:",
+      "aiGeneration": "Generación Impulsada por IA:",
+      "aiGenerationDesc": "Los artículos se crean utilizando Gemini AI de Google, que investiga temas y sintetiza información de múltiples fuentes.",
+      "sourceCitations": "Citas de Fuentes:",
+      "sourceCitationsDesc": "Cada artículo incluye referencias a fuentes confiables, basadas en información real de Google Search.",
+      "availability": "Disponibilidad:",
+      "availabilityDesc": "El contenido se genera automáticamente a medianoche UTC, asegurando que la sabiduría fresca esté lista cuando comiences tu día."
+    },
+    "worldwide": {
+      "title": "Disponible en Todo el Mundo",
+      "content": "Sabiduría Diaria está disponible en <strong>12 idiomas</strong>, haciendo que la sabiduría sea accesible para lectores de todo el mundo. Nuestro sistema híbrido de traducción combina las traducciones de alta calidad de DeepL con respaldo impulsado por IA para garantizar que el contenido esté disponible en:"
+    },
+    "technology": {
+      "title": "Construido con Tecnología Moderna",
+      "content": "Sabiduría Diaria está construida con tecnologías web de vanguardia para garantizar una experiencia de lectura rápida, confiable y hermosa:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "Framework React para producción",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Desarrollo con seguridad de tipos",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Almacenamiento de datos confiable",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Diseño hermoso y responsivo",
+      "docker": "Docker",
+      "dockerDesc": "Despliegue en contenedores"
+    },
+    "futurePlans": {
+      "title": "Planes Futuros",
+      "intro": "Estamos trabajando constantemente para mejorar Sabiduría Diaria y agregar nuevas funciones para mejorar tu experiencia de lectura. Esto es lo que estamos planeando:",
+      "articleSearch": "Listado y Búsqueda de Artículos:",
+      "articleSearchDesc": "Navega por el archivo de artículos anteriores con una potente funcionalidad de búsqueda para encontrar temas o temas específicos que te interesen.",
+      "categories": "Categorías de Contenido:",
+      "categoriesDesc": "Organiza artículos en categorías como humor, pasajes rápidos, análisis profundos y más, facilitando encontrar contenido que coincida con tu estado de ánimo.",
+      "userAccounts": "Cuentas de Usuario:",
+      "userAccountsDesc": "Crea una cuenta personal para guardar tus artículos favoritos, agregar notas privadas y rastrear tu historial de lectura.",
+      "inDepthAnalysis": "Análisis en Profundidad:",
+      "inDepthAnalysisDesc": "Selecciona cualquier pasaje de un artículo para recibir explicaciones detalladas, contexto histórico o análisis filosófico más profundo.",
+      "suggestions": "¿Tienes ideas para otras funciones? ¡Nos encantaría escuchar tus sugerencias!"
+    },
+    "aiDisclaimer": {
+      "title": "Importante:",
+      "content": "Todos los artículos en Sabiduría Diaria son generados por inteligencia artificial. Si bien nos esforzamos por la precisión y citamos fuentes creíbles, el contenido generado por IA puede contener errores o inexactitudes. Siempre verifica la información importante de fuentes primarias."
+    },
+    "openSource": {
+      "title": "Código Abierto y Apoyo",
+      "content": "Sabiduría Diaria es un proyecto de código abierto, construido con pasión y compartido libremente con la comunidad. Todo el código está disponible en GitHub bajo la Licencia MIT.",
+      "github": "Ver en GitHub",
+      "sponsor": "Patrocinar este Proyecto",
+      "supportText": "Si encuentras valioso Sabiduría Diaria, considera apoyar su desarrollo. Tu patrocinio ayuda a mantener el proyecto vivo y permite mejoras continuas."
+    },
+    "contact": {
+      "title": "Ponte en Contacto",
+      "content": "¿Tienes preguntas, sugerencias o comentarios? Me encantaría saber de ti.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Hecho con cuidado por",
+      "license": "© 2026 Sabiduría Diaria. Publicado bajo Licencia MIT."
+    }
   }
 }

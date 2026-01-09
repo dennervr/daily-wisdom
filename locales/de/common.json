@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d. MMMM yyyy",
     "dateFull": "EEEE, d. MMMM yyyy"
+  },
+  "about": {
+    "title": "Über Tägliche Weisheit",
+    "subtitle": "Eine minimalistische Publikation, die täglich Weisheit durch KI-generierte Artikel über Philosophie, Wissenschaft und Geschichte liefert.",
+    "backButton": "Zurück zu Tägliche Weisheit",
+    "mission": {
+      "title": "Unsere Mission",
+      "content": "In einer Welt, die von Informationen überquillt, bietet Tägliche Weisheit einen Moment der Klarheit. Jeden Tag liefern wir einen Artikel, der zeitlose Themen aus Philosophie, Wissenschaft und Geschichte erkundet. Unser Ziel ist es, zugängliche, zum Nachdenken anregende Inhalte bereitzustellen, die Ihr Verständnis der Welt bereichern und zu tieferer Reflexion inspirieren."
+    },
+    "howItWorks": {
+      "title": "Wie Es Funktioniert",
+      "intro": "Tägliche Weisheit nutzt fortschrittliche künstliche Intelligenz, um jeden Tag frische, aufschlussreiche Inhalte zu generieren:",
+      "aiGeneration": "KI-Gestützte Generierung:",
+      "aiGenerationDesc": "Artikel werden mit Googles Gemini AI erstellt, die Themen recherchiert und Informationen aus mehreren Quellen synthetisiert.",
+      "sourceCitations": "Quellenangaben:",
+      "sourceCitationsDesc": "Jeder Artikel enthält Verweise auf glaubwürdige Quellen, die auf realen Informationen aus der Google-Suche basieren.",
+      "availability": "Verfügbarkeit:",
+      "availabilityDesc": "Inhalte werden automatisch um Mitternacht UTC generiert, um sicherzustellen, dass frische Weisheit bereit ist, wenn Sie Ihren Tag beginnen."
+    },
+    "worldwide": {
+      "title": "Weltweit Verfügbar",
+      "content": "Tägliche Weisheit ist in <strong>12 Sprachen</strong> verfügbar und macht Weisheit für Leser auf der ganzen Welt zugänglich. Unser hybrides Übersetzungssystem kombiniert qualitativ hochwertige DeepL-Übersetzungen mit KI-gestütztem Fallback, um sicherzustellen, dass Inhalte verfügbar sind in:"
+    },
+    "technology": {
+      "title": "Gebaut mit Moderner Technologie",
+      "content": "Tägliche Weisheit ist mit modernsten Webtechnologien gebaut, um ein schnelles, zuverlässiges und schönes Leseerlebnis zu gewährleisten:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "React-Framework für Produktion",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Typsichere Entwicklung",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Zuverlässige Datenspeicherung",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Schönes, responsives Design",
+      "docker": "Docker",
+      "dockerDesc": "Containerisierte Bereitstellung"
+    },
+    "futurePlans": {
+      "title": "Zukunftspläne",
+      "intro": "Wir arbeiten ständig daran, Tägliche Weisheit zu verbessern und neue Funktionen hinzuzufügen, um Ihr Leseerlebnis zu verbessern. Hier ist, was wir planen:",
+      "articleSearch": "Artikelauflistung & Suche:",
+      "articleSearchDesc": "Durchsuchen Sie das Archiv vergangener Artikel mit leistungsstarker Suchfunktionalität, um bestimmte Themen oder Themen zu finden, die Sie interessieren.",
+      "categories": "Inhaltskategorien:",
+      "categoriesDesc": "Organisieren Sie Artikel in Kategorien wie Humor, kurze Passagen, tiefgehende Analysen und mehr, um es einfacher zu machen, Inhalte zu finden, die zu Ihrer Stimmung passen.",
+      "userAccounts": "Benutzerkonten:",
+      "userAccountsDesc": "Erstellen Sie ein persönliches Konto, um Ihre Lieblingsartikel zu speichern, private Notizen hinzuzufügen und Ihren Leseverlauf zu verfolgen.",
+      "inDepthAnalysis": "Tiefgehende Analyse:",
+      "inDepthAnalysisDesc": "Wählen Sie einen beliebigen Abschnitt aus einem Artikel aus, um detaillierte Erklärungen, historischen Kontext oder tiefere philosophische Analysen zu erhalten.",
+      "suggestions": "Haben Sie Ideen für andere Funktionen? Wir würden gerne Ihre Vorschläge hören!"
+    },
+    "aiDisclaimer": {
+      "title": "Wichtig:",
+      "content": "Alle Artikel auf Tägliche Weisheit werden von künstlicher Intelligenz generiert. Obwohl wir um Genauigkeit bemüht sind und glaubwürdige Quellen zitieren, können KI-generierte Inhalte Fehler oder Ungenauigkeiten enthalten. Überprüfen Sie wichtige Informationen immer aus Primärquellen."
+    },
+    "openSource": {
+      "title": "Open Source & Unterstützung",
+      "content": "Tägliche Weisheit ist ein Open-Source-Projekt, mit Leidenschaft gebaut und frei mit der Community geteilt. Der gesamte Code ist auf GitHub unter der MIT-Lizenz verfügbar.",
+      "github": "Auf GitHub ansehen",
+      "sponsor": "Dieses Projekt Sponsern",
+      "supportText": "Wenn Sie Tägliche Weisheit wertvoll finden, erwägen Sie, seine Entwicklung zu unterstützen. Ihr Sponsoring hilft, das Projekt am Leben zu halten und ermöglicht kontinuierliche Verbesserungen."
+    },
+    "contact": {
+      "title": "Kontakt Aufnehmen",
+      "content": "Haben Sie Fragen, Vorschläge oder Feedback? Ich würde gerne von Ihnen hören.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Mit Sorgfalt gemacht von",
+      "license": "© 2026 Tägliche Weisheit. Veröffentlicht unter MIT-Lizenz."
+    }
   }
 }

@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d 'de' MMMM 'de' yyyy",
     "dateFull": "EEEE, d 'de' MMMM 'de' yyyy"
+  },
+  "about": {
+    "title": "Sobre Sabedoria Diária",
+    "subtitle": "Uma publicação minimalista que entrega sabedoria diária através de artigos gerados por IA sobre Filosofia, Ciência e História.",
+    "backButton": "Voltar para Sabedoria Diária",
+    "mission": {
+      "title": "Nossa Missão",
+      "content": "Em um mundo transbordando de informação, Sabedoria Diária oferece um momento de clareza. Cada dia, entregamos um artigo explorando tópicos atemporais de filosofia, ciência e história. Nosso objetivo é fornecer conteúdo acessível e instigante que enriqueça sua compreensão do mundo e inspire uma reflexão mais profunda."
+    },
+    "howItWorks": {
+      "title": "Como Funciona",
+      "intro": "Sabedoria Diária usa inteligência artificial avançada para gerar conteúdo fresco e perspicaz todos os dias:",
+      "aiGeneration": "Geração Impulsionada por IA:",
+      "aiGenerationDesc": "Artigos são criados usando Gemini AI do Google, que pesquisa tópicos e sintetiza informações de múltiplas fontes.",
+      "sourceCitations": "Citações de Fontes:",
+      "sourceCitationsDesc": "Cada artigo inclui referências a fontes confiáveis, baseadas em informações reais do Google Search.",
+      "availability": "Disponibilidade:",
+      "availabilityDesc": "O conteúdo é gerado automaticamente à meia-noite UTC, garantindo que a sabedoria fresca esteja pronta quando você começar seu dia."
+    },
+    "worldwide": {
+      "title": "Disponível Mundialmente",
+      "content": "Sabedoria Diária está disponível em <strong>12 idiomas</strong>, tornando a sabedoria acessível a leitores ao redor do globo. Nosso sistema híbrido de tradução combina traduções de alta qualidade do DeepL com suporte impulsionado por IA para garantir que o conteúdo esteja disponível em:"
+    },
+    "technology": {
+      "title": "Construído com Tecnologia Moderna",
+      "content": "Sabedoria Diária é construída com tecnologias web de ponta para garantir uma experiência de leitura rápida, confiável e bonita:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "Framework React para produção",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Desenvolvimento com segurança de tipos",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Armazenamento de dados confiável",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Design bonito e responsivo",
+      "docker": "Docker",
+      "dockerDesc": "Implantação em contêineres"
+    },
+    "futurePlans": {
+      "title": "Planos Futuros",
+      "intro": "Estamos constantemente trabalhando para melhorar Sabedoria Diária e adicionar novos recursos para aprimorar sua experiência de leitura. Aqui está o que estamos planejando:",
+      "articleSearch": "Listagem e Busca de Artigos:",
+      "articleSearchDesc": "Navegue pelo arquivo de artigos anteriores com funcionalidade de busca poderosa para encontrar tópicos ou temas específicos que lhe interessam.",
+      "categories": "Categorias de Conteúdo:",
+      "categoriesDesc": "Organize artigos em categorias como humor, passagens rápidas, análises profundas e mais, facilitando encontrar conteúdo que combine com seu humor.",
+      "userAccounts": "Contas de Usuário:",
+      "userAccountsDesc": "Crie uma conta pessoal para salvar seus artigos favoritos, adicionar notas privadas e rastrear seu histórico de leitura.",
+      "inDepthAnalysis": "Análise Aprofundada:",
+      "inDepthAnalysisDesc": "Selecione qualquer passagem de um artigo para receber explicações detalhadas, contexto histórico ou análise filosófica mais profunda.",
+      "suggestions": "Tem ideias para outros recursos? Adoraríamos ouvir suas sugestões!"
+    },
+    "aiDisclaimer": {
+      "title": "Importante:",
+      "content": "Todos os artigos em Sabedoria Diária são gerados por inteligência artificial. Embora nos esforcemos pela precisão e citemos fontes confiáveis, o conteúdo gerado por IA pode conter erros ou imprecisões. Sempre verifique informações importantes de fontes primárias."
+    },
+    "openSource": {
+      "title": "Código Aberto e Apoio",
+      "content": "Sabedoria Diária é um projeto de código aberto, construído com paixão e compartilhado livremente com a comunidade. Todo o código está disponível no GitHub sob a Licença MIT.",
+      "github": "Ver no GitHub",
+      "sponsor": "Patrocinar este Projeto",
+      "supportText": "Se você acha Sabedoria Diária valioso, considere apoiar seu desenvolvimento. Seu patrocínio ajuda a manter o projeto vivo e permite melhorias contínuas."
+    },
+    "contact": {
+      "title": "Entre em Contato",
+      "content": "Tem perguntas, sugestões ou feedback? Adoraria ouvir de você.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Feito com carinho por",
+      "license": "© 2026 Sabedoria Diária. Lançado sob Licença MIT."
+    }
   }
 }

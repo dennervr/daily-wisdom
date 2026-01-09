@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "d MMMM yyyy",
     "dateFull": "EEEE d MMMM yyyy"
+  },
+  "about": {
+    "title": "À Propos de Sagesse Quotidienne",
+    "subtitle": "Une publication minimaliste offrant une sagesse quotidienne à travers des articles générés par IA sur la Philosophie, la Science et l'Histoire.",
+    "backButton": "Retour à Sagesse Quotidienne",
+    "mission": {
+      "title": "Notre Mission",
+      "content": "Dans un monde débordant d'informations, Sagesse Quotidienne offre un moment de clarté. Chaque jour, nous livrons un article explorant des sujets intemporels de philosophie, science et histoire. Notre objectif est de fournir un contenu accessible et stimulant qui enrichit votre compréhension du monde et inspire une réflexion plus profonde."
+    },
+    "howItWorks": {
+      "title": "Comment Ça Marche",
+      "intro": "Sagesse Quotidienne utilise l'intelligence artificielle avancée pour générer un contenu frais et perspicace chaque jour:",
+      "aiGeneration": "Génération Alimentée par l'IA:",
+      "aiGenerationDesc": "Les articles sont créés en utilisant Gemini AI de Google, qui recherche des sujets et synthétise des informations à partir de multiples sources.",
+      "sourceCitations": "Citations de Sources:",
+      "sourceCitationsDesc": "Chaque article inclut des références à des sources crédibles, ancrées dans des informations réelles de Google Search.",
+      "availability": "Disponibilité:",
+      "availabilityDesc": "Le contenu est généré automatiquement à minuit UTC, garantissant que la sagesse fraîche est prête lorsque vous commencez votre journée."
+    },
+    "worldwide": {
+      "title": "Disponible dans le Monde Entier",
+      "content": "Sagesse Quotidienne est disponible en <strong>12 langues</strong>, rendant la sagesse accessible aux lecteurs du monde entier. Notre système de traduction hybride combine les traductions de haute qualité de DeepL avec un support alimenté par l'IA pour garantir que le contenu est disponible en:"
+    },
+    "technology": {
+      "title": "Construit avec une Technologie Moderne",
+      "content": "Sagesse Quotidienne est construit avec des technologies web de pointe pour garantir une expérience de lecture rapide, fiable et belle:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "Framework React pour la production",
+      "typescript": "TypeScript",
+      "typescriptDesc": "Développement sécurisé par types",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "Stockage de données fiable",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "Design beau et réactif",
+      "docker": "Docker",
+      "dockerDesc": "Déploiement conteneurisé"
+    },
+    "futurePlans": {
+      "title": "Plans Futurs",
+      "intro": "Nous travaillons constamment à améliorer Sagesse Quotidienne et à ajouter de nouvelles fonctionnalités pour améliorer votre expérience de lecture. Voici ce que nous planifions:",
+      "articleSearch": "Liste et Recherche d'Articles:",
+      "articleSearchDesc": "Parcourez les archives des articles passés avec une fonctionnalité de recherche puissante pour trouver des sujets ou des thèmes spécifiques qui vous intéressent.",
+      "categories": "Catégories de Contenu:",
+      "categoriesDesc": "Organisez les articles en catégories comme humour, passages rapides, analyses approfondies et plus encore, facilitant la recherche de contenu qui correspond à votre humeur.",
+      "userAccounts": "Comptes Utilisateur:",
+      "userAccountsDesc": "Créez un compte personnel pour sauvegarder vos articles favoris, ajouter des notes privées et suivre votre historique de lecture.",
+      "inDepthAnalysis": "Analyse Approfondie:",
+      "inDepthAnalysisDesc": "Sélectionnez n'importe quel passage d'un article pour recevoir des explications détaillées, un contexte historique ou une analyse philosophique plus profonde.",
+      "suggestions": "Avez-vous des idées pour d'autres fonctionnalités? Nous aimerions entendre vos suggestions!"
+    },
+    "aiDisclaimer": {
+      "title": "Important:",
+      "content": "Tous les articles sur Sagesse Quotidienne sont générés par intelligence artificielle. Bien que nous nous efforcions d'être précis et citons des sources crédibles, le contenu généré par l'IA peut contenir des erreurs ou des inexactitudes. Vérifiez toujours les informations importantes auprès de sources primaires."
+    },
+    "openSource": {
+      "title": "Open Source et Soutien",
+      "content": "Sagesse Quotidienne est un projet open source, construit avec passion et partagé librement avec la communauté. L'ensemble du code est disponible sur GitHub sous licence MIT.",
+      "github": "Voir sur GitHub",
+      "sponsor": "Parrainer ce Projet",
+      "supportText": "Si vous trouvez Sagesse Quotidienne précieux, envisagez de soutenir son développement. Votre parrainage aide à maintenir le projet en vie et permet des améliorations continues."
+    },
+    "contact": {
+      "title": "Nous Contacter",
+      "content": "Vous avez des questions, des suggestions ou des commentaires? J'aimerais avoir de vos nouvelles.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "Fabriqué avec soin par",
+      "license": "© 2026 Sagesse Quotidienne. Publié sous licence MIT."
+    }
   }
 }

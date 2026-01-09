@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "yyyy년 M월 d일",
     "dateFull": "yyyy년 M월 d일 EEEE"
+  },
+  "about": {
+    "title": "데일리 위즈덤 소개",
+    "subtitle": "철학, 과학, 역사에 관한 AI 생성 기사를 통해 매일 지혜를 전달하는 미니멀리스트 출판물.",
+    "backButton": "데일리 위즈덤으로 돌아가기",
+    "mission": {
+      "title": "우리의 사명",
+      "content": "정보가 넘쳐나는 세상에서 데일리 위즈덤은 명료함의 순간을 제공합니다. 매일 우리는 철학, 과학, 역사의 시대를 초월한 주제를 탐구하는 기사를 제공합니다. 우리의 목표는 세상에 대한 이해를 풍부하게 하고 더 깊은 성찰을 불러일으키는 접근 가능하고 생각을 자극하는 콘텐츠를 제공하는 것입니다."
+    },
+    "howItWorks": {
+      "title": "작동 방식",
+      "intro": "데일리 위즈덤은 매일 신선하고 통찰력 있는 콘텐츠를 생성하기 위해 고급 인공지능을 사용합니다:",
+      "aiGeneration": "AI 기반 생성:",
+      "aiGenerationDesc": "기사는 주제를 연구하고 여러 출처에서 정보를 종합하는 Google의 Gemini AI를 사용하여 생성됩니다.",
+      "sourceCitations": "출처 인용:",
+      "sourceCitationsDesc": "모든 기사에는 Google 검색의 실제 정보에 기반한 신뢰할 수 있는 출처에 대한 참조가 포함되어 있습니다.",
+      "availability": "가용성:",
+      "availabilityDesc": "콘텐츠는 UTC 자정에 자동으로 생성되어 하루를 시작할 때 신선한 지혜가 준비되어 있습니다."
+    },
+    "worldwide": {
+      "title": "전 세계에서 이용 가능",
+      "content": "데일리 위즈덤은 <strong>12개 언어</strong>로 제공되어 전 세계 독자들이 지혜에 접근할 수 있도록 합니다. 우리의 하이브리드 번역 시스템은 DeepL의 고품질 번역과 AI 기반 대체 방법을 결합하여 다음 언어로 콘텐츠를 제공합니다:"
+    },
+    "technology": {
+      "title": "현대적인 기술로 구축",
+      "content": "데일리 위즈덤은 빠르고 안정적이며 아름다운 읽기 경험을 보장하기 위해 최첨단 웹 기술로 구축되었습니다:",
+      "nextjs": "Next.js",
+      "nextjsDesc": "프로덕션용 React 프레임워크",
+      "typescript": "TypeScript",
+      "typescriptDesc": "타입 안전 개발",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "안정적인 데이터 저장",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "아름답고 반응형 디자인",
+      "docker": "Docker",
+      "dockerDesc": "컨테이너화된 배포"
+    },
+    "futurePlans": {
+      "title": "향후 계획",
+      "intro": "우리는 데일리 위즈덤을 개선하고 독서 경험을 향상시킬 새로운 기능을 추가하기 위해 지속적으로 노력하고 있습니다. 다음은 우리의 계획입니다:",
+      "articleSearch": "기사 목록 및 검색:",
+      "articleSearchDesc": "강력한 검색 기능을 사용하여 과거 기사 아카이브를 탐색하고 관심 있는 특정 주제나 테마를 찾으세요.",
+      "categories": "콘텐츠 카테고리:",
+      "categoriesDesc": "유머, 빠른 구절, 심층 분석 등의 카테고리로 기사를 정리하여 기분에 맞는 콘텐츠를 더 쉽게 찾을 수 있습니다.",
+      "userAccounts": "사용자 계정:",
+      "userAccountsDesc": "개인 계정을 만들어 좋아하는 기사를 저장하고 개인 메모를 추가하며 읽기 기록을 추적하세요.",
+      "inDepthAnalysis": "심층 분석:",
+      "inDepthAnalysisDesc": "기사의 모든 구절을 선택하여 자세한 설명, 역사적 맥락 또는 더 깊은 철학적 분석을 받으세요.",
+      "suggestions": "다른 기능에 대한 아이디어가 있으신가요? 여러분의 제안을 듣고 싶습니다!"
+    },
+    "aiDisclaimer": {
+      "title": "중요:",
+      "content": "데일리 위즈덤의 모든 기사는 인공지능에 의해 생성됩니다. 정확성을 위해 노력하고 신뢰할 수 있는 출처를 인용하지만, AI 생성 콘텐츠에는 오류나 부정확성이 포함될 수 있습니다. 중요한 정보는 항상 1차 출처에서 확인하세요."
+    },
+    "openSource": {
+      "title": "오픈 소스 및 지원",
+      "content": "데일리 위즈덤은 열정으로 구축되어 커뮤니티와 자유롭게 공유되는 오픈 소스 프로젝트입니다. 전체 코드베이스는 GitHub에서 MIT 라이선스 하에 제공됩니다.",
+      "github": "GitHub에서 보기",
+      "sponsor": "이 프로젝트 후원하기",
+      "supportText": "데일리 위즈덤이 가치 있다고 생각되면 개발을 지원하는 것을 고려해 주세요. 여러분의 후원은 프로젝트를 유지하고 지속적인 개선을 가능하게 합니다."
+    },
+    "contact": {
+      "title": "연락하기",
+      "content": "질문, 제안 또는 피드백이 있으신가요? 여러분의 의견을 듣고 싶습니다.",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "정성껏 제작:",
+      "license": "© 2026 데일리 위즈덤. MIT 라이선스 하에 배포됩니다."
+    }
   }
 }

@@ -44,5 +44,75 @@
     "dateShort": "yyyy-MM-dd",
     "dateLong": "yyyy年M月d日",
     "dateFull": "yyyy年M月d日 EEEE"
+  },
+  "about": {
+    "title": "关于每日智慧",
+    "subtitle": "一个极简主义出版物，通过AI生成的关于哲学、科学和历史的文章提供每日智慧。",
+    "backButton": "返回每日智慧",
+    "mission": {
+      "title": "我们的使命",
+      "content": "在一个信息泛滥的世界中，每日智慧提供了一个清晰的时刻。每天，我们都会提供一篇探索哲学、科学和历史永恒主题的文章。我们的目标是提供易于理解、发人深省的内容，丰富您对世界的理解并激发更深层次的思考。"
+    },
+    "howItWorks": {
+      "title": "运作方式",
+      "intro": "每日智慧使用先进的人工智能每天生成新鲜、富有洞察力的内容：",
+      "aiGeneration": "AI驱动生成：",
+      "aiGenerationDesc": "文章使用Google的Gemini AI创建，它研究主题并从多个来源综合信息。",
+      "sourceCitations": "来源引用：",
+      "sourceCitationsDesc": "每篇文章都包含对可信来源的引用，基于Google搜索的真实信息。",
+      "availability": "可用性：",
+      "availabilityDesc": "内容在UTC午夜自动生成，确保当您开始新的一天时，新鲜的智慧已经准备就绪。"
+    },
+    "worldwide": {
+      "title": "全球可用",
+      "content": "每日智慧提供<strong>12种语言</strong>版本，使全球读者都能获得智慧。我们的混合翻译系统结合了DeepL的高质量翻译和AI驱动的备用方案，以确保内容可用："
+    },
+    "technology": {
+      "title": "采用现代技术构建",
+      "content": "每日智慧采用尖端的网络技术构建，以确保快速、可靠和美观的阅读体验：",
+      "nextjs": "Next.js",
+      "nextjsDesc": "用于生产的React框架",
+      "typescript": "TypeScript",
+      "typescriptDesc": "类型安全开发",
+      "postgresql": "PostgreSQL",
+      "postgresqlDesc": "可靠的数据存储",
+      "tailwind": "Tailwind CSS",
+      "tailwindDesc": "美观、响应式设计",
+      "docker": "Docker",
+      "dockerDesc": "容器化部署"
+    },
+    "futurePlans": {
+      "title": "未来计划",
+      "intro": "我们不断努力改进每日智慧并添加新功能以增强您的阅读体验。以下是我们的计划：",
+      "articleSearch": "文章列表和搜索：",
+      "articleSearchDesc": "浏览过去文章的档案，使用强大的搜索功能查找您感兴趣的特定主题或话题。",
+      "categories": "内容分类：",
+      "categoriesDesc": "将文章组织成幽默、快速段落、深度分析等类别，更容易找到符合您心情的内容。",
+      "userAccounts": "用户账户：",
+      "userAccountsDesc": "创建个人账户以保存您喜欢的文章、添加私人笔记并追踪您的阅读历史。",
+      "inDepthAnalysis": "深度分析：",
+      "inDepthAnalysisDesc": "从文章中选择任何段落，以获得详细的解释、历史背景或更深入的哲学分析。",
+      "suggestions": "有其他功能的想法吗？我们很乐意听取您的建议！"
+    },
+    "aiDisclaimer": {
+      "title": "重要提示：",
+      "content": "每日智慧上的所有文章都由人工智能生成。虽然我们力求准确并引用可信来源，但AI生成的内容可能包含错误或不准确之处。请始终从主要来源验证重要信息。"
+    },
+    "openSource": {
+      "title": "开源和支持",
+      "content": "每日智慧是一个开源项目，以热情构建并与社区自由分享。整个代码库在GitHub上以MIT许可证提供。",
+      "github": "在GitHub上查看",
+      "sponsor": "赞助此项目",
+      "supportText": "如果您觉得每日智慧有价值，请考虑支持其开发。您的赞助有助于保持项目的活力并实现持续改进。"
+    },
+    "contact": {
+      "title": "联系我们",
+      "content": "有问题、建议或反馈吗？我很乐意听到您的声音。",
+      "email": "dennervrp@gmail.com"
+    },
+    "footer": {
+      "madeBy": "精心制作者：",
+      "license": "© 2026 每日智慧。根据MIT许可证发布。"
+    }
   }
 }
