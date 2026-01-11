@@ -30,6 +30,17 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange,
   // Prevent hydration mismatch by showing a placeholder until client-side hydration is complete
   const displayLanguage = mounted ? language.name : ""
 
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light"
+    if (typeof document !== undefined && 'startViewTransition' in document){
+      document.startViewTransition(() => {
+        setTheme(newTheme)   
+      })
+    } else {
+        setTheme(newTheme)   
+    }
+  }
+
   return (
     <nav className="fixed top-0 w-full z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="max-w-5xl mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
@@ -117,7 +128,7 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange,
             <Button 
               variant="ghost" 
               size="icon" 
-              onClick={() => setTheme(theme === "light" ? "dark" : "light")}
+              onClick={toggleTheme}
               aria-label={t('navbar.toggleTheme')}
             >
               {theme === "light" ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}

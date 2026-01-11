@@ -85,7 +85,7 @@ export default function RootLayout({
         <StructuredData data={generateWebSiteStructuredData()} />
       </head>
       <body className={`${crimsonPro.variable} ${inter.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <I18nProvider>
             {children}
           </I18nProvider>

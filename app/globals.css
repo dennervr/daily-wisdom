@@ -134,3 +134,24 @@
   --tw-prose-quotes: var(--muted-foreground);
   --tw-prose-quote-borders: var(--border);
 }
+
+::view-transition-old(root) {
+  animation-delay: 500ms;
+}
+
+::view-transition-new(root) {
+  animation: circle-in 500ms;
+}
+
+@keyframes circle-in {
+  from {clip-path: circle(0% at 100% 0%); }
+  to {clip-path: circle(120% at 100% 0%); }
+}
+
+/* Fallback CSS transitions for older browsers */
+* {
+  transition: 
+    background-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 350ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
