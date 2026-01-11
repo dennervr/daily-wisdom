@@ -45,7 +45,7 @@ export function Navbar({ selectedDate, onDateChange, language, onLanguageChange,
               className="flex gap-2 text-foreground hover:bg-accent"
             >
               <Info className="w-4 h-4" />
-              <span className="hidden sm:inline">About</span>
+              <span className="hidden sm:inline">{t('navbar.about')}</span>
             </Button>
           </Link>
         </div>

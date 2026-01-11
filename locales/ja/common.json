@@ -8,7 +8,8 @@
     "selectDate": "日付を選択",
     "selectLanguage": "言語を選択",
     "toggleTheme": "テーマを切り替え",
-    "sponsor": "サポート"
+    "sponsor": "サポート",
+    "about": "について"
   },
   "loading": {
     "gathering": "知恵を集めています...",

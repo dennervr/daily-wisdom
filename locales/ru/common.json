@@ -8,7 +8,8 @@
     "selectDate": "Выбрать дату",
     "selectLanguage": "Выбрать язык",
     "toggleTheme": "Сменить тему",
-    "sponsor": "Поддержать"
+    "sponsor": "Поддержать",
+    "about": "О проекте"
   },
   "loading": {
     "gathering": "Собираем мудрость...",

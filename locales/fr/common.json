@@ -8,7 +8,8 @@
     "selectDate": "Choisir la date",
     "selectLanguage": "Sélectionner la langue",
     "toggleTheme": "Changer le thème",
-    "sponsor": "Soutenir"
+    "sponsor": "Soutenir",
+    "about": "À propos"
   },
   "loading": {
     "gathering": "Collecte de sagesse...",

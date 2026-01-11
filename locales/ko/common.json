@@ -8,7 +8,8 @@
     "selectDate": "날짜 선택",
     "selectLanguage": "언어 선택",
     "toggleTheme": "테마 전환",
-    "sponsor": "후원"
+    "sponsor": "후원",
+    "about": "소개"
   },
   "loading": {
     "gathering": "지혜 수집 중...",
