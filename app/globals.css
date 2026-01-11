@@ -136,16 +136,16 @@
 }
 
 ::view-transition-old(root) {
-  animation-delay: 500ms;
+  animation-delay: 400ms;
 }
 
 ::view-transition-new(root) {
-  animation: circle-in 500ms;
+  animation: circle-in 400ms;
 }
 
 @keyframes circle-in {
   from {clip-path: circle(0% at 100% 0%); }
-  to {clip-path: circle(120% at 100% 0%); }
+  to {clip-path: circle(145% at 100% 0%); }
 }
 
 /* Fallback CSS transitions for older browsers */
