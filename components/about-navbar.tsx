@@ -74,10 +74,10 @@ export function AboutNavbar() {
             size="sm"
             className="gap-2 border-0 shadow-none sm:border sm:shadow-xs hover:bg-accent"
             onClick={() => window.open('https://buy.stripe.com/00w3cxdx5ekPdsC1Pk6oo00', '_blank')}
-            aria-label="Sponsor this project"
+            aria-label={t('navbar.sponsor')}
           >
             <Heart className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5 w-5 h-5 text-red-500" />
-            <span className="hidden sm:inline">Sponsor</span>
+            <span className="hidden sm:inline">{t('navbar.sponsor')}</span>
           </Button>
 
           {/* Theme Toggle */}
